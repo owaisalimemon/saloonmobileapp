@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:saloonmobileapp/UI/mainscreen/connect_with_screen.dart';
 
 import 'package:saloonmobileapp/UI/mainscreen/onboardingscreen.dart';
 
@@ -12,7 +13,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: OnBoardingScreen(),
+      theme: ThemeData(fontFamily: 'Sofia'),
+      home: ConnectWithScreen(),
     );
   }
 }
