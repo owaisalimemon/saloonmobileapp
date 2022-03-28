@@ -37,6 +37,12 @@ dependencies:
 
 
   flutter_riverpod: ^0.14.0+3
+  country_code_picker: ^2.0.0
+
+  pin_code_fields: ^7.3.0
+  
+
+  ars_dialog: ^1.0.8
 
 dev_dependencies:
   flutter_test:

@@ -16,6 +16,7 @@ class RoundCustomButton extends StatelessWidget {
       onTap: ontap,
       child: Container(
         width: width * 0.8,
+        height: height * 0.07,
         padding: EdgeInsets.symmetric(vertical: 15),
         decoration: BoxDecoration(
           color: ColorsX.blue_gradient_dark,
@@ -27,7 +28,7 @@ class RoundCustomButton extends StatelessWidget {
             Container(
               child: Text(text,
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: width * 0.045,
                     color: ColorsX.white,
                     fontWeight: FontWeight.w700,
                   )),

@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:saloonmobileapp/UI/widgets/emailbutton.dart';
 import 'package:saloonmobileapp/extrahelper/colors.dart';
 
 class ConnectWithScreen extends StatelessWidget {
@@ -46,43 +49,41 @@ class ConnectWithScreen extends StatelessWidget {
                           fontWeight: FontWeight.bold)),
                 ),
                 SizedBox(height: height * 0.01),
-                textWidgets("Book an appointment for Salon, Spa & Barber",
-                    width * 0.075, context),
-                SizedBox(height: height * 0.03),
-                InkWell(
-                  onTap: () {},
-                  child: getRowElementFirst("Sign up with email", context,
-                      height * 0.1 * 62, 0xffffffff, 0xff606060),
+                Text(
+                  "Book an appointment for Salon, Spa & Barber",
+                  style: TextStyle(
+                      color: ColorsX.white,
+                      fontWeight: FontWeight.w700,
+                      fontSize: width * 0.075),
                 ),
+                SizedBox(height: height * 0.03),
+                email_button(
+                    value: "Sign up with email",
+                    colorCode: 0xffffffff,
+                    textColor: 0xff606060,
+                    ontap: () {}),
                 SizedBox(height: height * 0.02),
-                getRowElement(
-                    'assets/images/icons/google.png',
-                    "Connect with Google",
-                    context,
-                    height * 0.1,
-                    0xffffffff,
-                    0xff606060,
-                    () {}),
+                Social_button(
+                    imagePath: 'assets/images/icons/google.png',
+                    value: "Connect with Google",
+                    colorCode: 0xffffffff,
+                    textColor: 0xff606060,
+                    onTap: () {}),
                 SizedBox(height: height * 0.02),
-                getRowElement(
-                    'assets/images/icons/fb.png',
-                    "Connect with Facebook",
-                    context,
-                    height * 0.1,
-                    0xff5CA6F8,
-                    0xffffffff,
-                    () {}),
+                Social_button(
+                    imagePath: 'assets/images/icons/fb.png',
+                    value: "Connect with Facebook",
+                    colorCode: 0xff6EC8FD,
+                    textColor: 0xffffffff,
+                    onTap: () {}),
                 SizedBox(height: height * 0.02),
-                // Platform.isIOS
-                true
-                    ? getRowElement(
-                        'assets/images/icons/apple.png',
-                        "Connect with Apple",
-                        context,
-                        height * 0.1,
-                        0xff4B4949,
-                        0xffffffff,
-                        () {})
+                Platform.isIOS
+                    ? Social_button(
+                        imagePath: 'assets/images/icons/apple.png',
+                        value: "Connect with Apple",
+                        colorCode: 0xff4B4949,
+                        textColor: 0xffffffff,
+                        onTap: () {})
                     : Container(),
                 SizedBox(height: height * 0.03),
                 Align(
@@ -112,86 +113,6 @@ class ConnectWithScreen extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget getRowElement(String? imagePath, String value, BuildContext context,
-      double top, int colorCode, int textColor, Function()? onTap) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-          width: width * 0.85,
-          padding: EdgeInsets.symmetric(vertical: height * 0.02),
-          decoration: BoxDecoration(
-              color: Color(colorCode),
-              borderRadius: BorderRadius.all(Radius.circular(10))),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              imagePath != null
-                  ? Image.asset(
-                      imagePath,
-                      fit: BoxFit.fitHeight,
-                      width: 20,
-                      height: 20,
-                    )
-                  : Container(),
-              SizedBox(width: width * 0.02),
-              Text(
-                value,
-                style: TextStyle(
-                    fontSize: width * 0.045,
-                    fontWeight: FontWeight.w700,
-                    color: Color(textColor)),
-              ),
-            ],
-          )),
-    );
-  }
-
-  Widget getRowElementFirst(String value, BuildContext context, double top,
-      int colorCode, int textColor) {
-    return GestureDetector(
-      onTap: () {
-        if (value.contains("email")) {
-          print("email pressed");
-          Navigator.pushNamed(context, '/login');
-        } else if (value.contains("Google")) {
-          print("Google clicked");
-        }
-      },
-      child: Container(
-          width: width * 0.85,
-          padding: EdgeInsets.symmetric(vertical: height * 0.02),
-          decoration: BoxDecoration(
-              color: Color(colorCode),
-              borderRadius: BorderRadius.all(Radius.circular(10))),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                value,
-                style: TextStyle(
-                    fontSize: width * 0.045,
-                    fontWeight: FontWeight.w700,
-                    color: Color(textColor)),
-              ),
-            ],
-          )),
-    );
-  }
-
-  Widget textWidgets(String value, double fontSize, BuildContext context) {
-    return Container(
-      child: Text(
-        value,
-        style: TextStyle(
-            color: ColorsX.white,
-            fontWeight: FontWeight.w700,
-            fontSize: fontSize),
       ),
     );
   }
