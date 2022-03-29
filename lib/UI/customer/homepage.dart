@@ -1,7 +1,16 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:saloonmobileapp/UI/customer/searchhome.dart';
+import 'package:saloonmobileapp/UI/customer/widgets/salooncard.dart';
+import 'package:saloonmobileapp/UI/customer/widgets/salooncard.dart';
+import 'package:saloonmobileapp/UI/customer/widgets/saloonfavouritecard.dart';
+import 'package:saloonmobileapp/controller/saloonscontroller.dart';
 import 'package:saloonmobileapp/extrahelper/colors.dart';
 
 class Categories {
@@ -12,8 +21,71 @@ class Categories {
       {required this.backimage, required this.fronticon, required this.text});
 }
 
-class HomePageScreen extends StatelessWidget {
+class Saloons {
+  String name;
+  String image;
+  String address;
+  String weekdays;
+  String distance;
+  String timings;
+  double rating;
+  bool neworold;
+  bool openorclose;
+  bool favourite;
+
+  Saloons(
+      {required this.name,
+      required this.image,
+      required this.rating,
+      required this.address,
+      required this.weekdays,
+      required this.distance,
+      required this.timings,
+      required this.favourite,
+      required this.neworold,
+      required this.openorclose});
+}
+
+class Packageandodder {
+  int percentoff;
+  int price;
+  String name;
+  String deal;
+  String dealno;
+  String validtill;
+  bool active;
+
+  Packageandodder(
+      {required this.percentoff,
+      required this.price,
+      required this.name,
+      required this.deal,
+      required this.dealno,
+      required this.validtill,
+      required this.active});
+}
+
+class HomePageScreen extends ConsumerWidget {
   HomePageScreen({Key? key}) : super(key: key);
+
+  List<Packageandodder> packagesandoffer = [
+    Packageandodder(
+        percentoff: 20,
+        price: 320,
+        name: "Manicure Pedicure",
+        deal: "Double Deal",
+        dealno: "#202020",
+        validtill: "20th  Sept 2021",
+        active: true),
+    Packageandodder(
+        percentoff: 20,
+        price: 320,
+        name: "Manicure Pedicure",
+        deal: "Double Deal",
+        dealno: "#202020",
+        validtill: "20th  Sept 2021",
+        active: false),
+  ];
 
   List<Categories> categori = [
     Categories(
@@ -31,7 +103,8 @@ class HomePageScreen extends StatelessWidget {
   ];
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, watch) {
+    var controller = watch(getsaloon);
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return SingleChildScrollView(
@@ -170,21 +243,23 @@ class HomePageScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        InkWell(
-                          onTap: () async {},
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => Searchhome()));
+                          },
                           child: Container(
-                            decoration: new BoxDecoration(
+                            height: height * 0.06,
+                            width: width * 0.12,
+                            decoration: BoxDecoration(
                                 color: ColorsX.blue_button_color,
                                 borderRadius: BorderRadius.only(
                                     topRight: Radius.circular(10),
                                     bottomRight: Radius.circular(10))),
                             // padding: EdgeInsets.all(20),
-                            child: IconButton(
-                              onPressed: () {},
-                              icon: Icon(
-                                Icons.search,
-                                color: ColorsX.white,
-                              ),
+                            child: Icon(
+                              Icons.search,
+                              color: ColorsX.white,
                             ),
                           ),
                         ),
@@ -307,6 +382,17 @@ class HomePageScreen extends StatelessWidget {
                     ],
                   ),
                 ),
+                SizedBox(height: height * 0.02),
+                Container(
+                    height: height * 0.31,
+                    child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        shrinkWrap: true,
+                        itemCount: controller.saloons.length,
+                        itemBuilder: (context, index) {
+                          return SaloonCard(
+                              index: index, controller: controller);
+                        })),
                 SizedBox(height: height * 0.08),
                 Padding(
                   padding: EdgeInsets.only(
@@ -337,6 +423,200 @@ class HomePageScreen extends StatelessWidget {
                     ],
                   ),
                 ),
+                SizedBox(height: height * 0.02),
+                Container(
+                    height: height * 0.26,
+                    child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        shrinkWrap: true,
+                        itemCount: packagesandoffer.length,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: EdgeInsets.only(
+                                left:
+                                    index == 0 ? width * 0.075 : width * 0.03),
+                            child: GestureDetector(
+                              onTap: () {
+                                print("clicked");
+                              },
+                              child: Card(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15)),
+                                elevation: 5,
+                                child: Container(
+                                    height: height * 0.25,
+                                    width: width * 0.75,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(15),
+                                        color: Colors.red,
+                                        image: DecorationImage(
+                                            image: AssetImage(
+                                                "assets/images/salooimage.png"),
+                                            fit: BoxFit.fill)),
+                                    child: Container(
+                                      height: height * 0.25,
+                                      width: width * 0.75,
+                                      decoration: BoxDecoration(
+                                          color: Colors.black.withOpacity(0.4),
+                                          borderRadius:
+                                              BorderRadius.circular(15)),
+                                      child: Stack(
+                                        children: [
+                                          Positioned(
+                                              top: height * 0.03,
+                                              right: width * 0.015,
+                                              child: Text(
+                                                packagesandoffer[index]
+                                                        .percentoff
+                                                        .toString() +
+                                                    "% \nOff",
+                                                style: TextStyle(
+                                                    fontSize: width * 0.1,
+                                                    color: Color(0xffFF770E),
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              )),
+                                          Positioned(
+                                            top: height * 0.12,
+                                            right: width * 0.03,
+                                            child: Container(
+                                              height: height * 0.04,
+                                              width: width * 0.18,
+                                              decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(15),
+                                                  color: packagesandoffer[index]
+                                                          .active
+                                                      ? Color(0xff56D91F)
+                                                      : Colors.red),
+                                              child: Center(
+                                                  child: Text(
+                                                      packagesandoffer[index]
+                                                              .active
+                                                          ? "Active"
+                                                          : "Deactive",
+                                                      style: TextStyle(
+                                                          fontSize:
+                                                              width * 0.04,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color:
+                                                              Colors.white))),
+                                            ),
+                                          ),
+                                          Positioned(
+                                              top: height * 0.18,
+                                              right: width * 0.03,
+                                              child: Text(
+                                                "Valid only",
+                                                style: TextStyle(
+                                                    fontSize: width * 0.04,
+                                                    color: Colors.white,
+                                                    fontWeight:
+                                                        FontWeight.normal),
+                                              )),
+                                          Positioned(
+                                              top: height * 0.21,
+                                              right: width * 0.03,
+                                              child: Text(
+                                                packagesandoffer[index]
+                                                    .validtill,
+                                                style: TextStyle(
+                                                    fontSize: width * 0.04,
+                                                    color: Colors.white,
+                                                    fontWeight:
+                                                        FontWeight.normal),
+                                              )),
+                                          Positioned(
+                                              top: height * 0.02,
+                                              left: width * 0.03,
+                                              child: Text(
+                                                "Deal",
+                                                style: TextStyle(
+                                                    fontSize: width * 0.04,
+                                                    color: Colors.white,
+                                                    fontWeight:
+                                                        FontWeight.normal),
+                                              )),
+                                          Positioned(
+                                              top: height * 0.04,
+                                              left: width * 0.03,
+                                              child: Text(
+                                                packagesandoffer[index].dealno,
+                                                style: TextStyle(
+                                                    fontSize: width * 0.04,
+                                                    color: Colors.white,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              )),
+                                          Positioned(
+                                              top: height * 0.09,
+                                              left: width * 0.03,
+                                              child: Text(
+                                                packagesandoffer[index].deal,
+                                                style: TextStyle(
+                                                    fontSize: width * 0.05,
+                                                    color: Colors.white,
+                                                    fontWeight:
+                                                        FontWeight.normal),
+                                              )),
+                                          Positioned(
+                                              top: height * 0.12,
+                                              left: width * 0.03,
+                                              child: Text(
+                                                packagesandoffer[index].name,
+                                                style: TextStyle(
+                                                    fontSize: width * 0.055,
+                                                    color: Colors.white,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              )),
+                                          Positioned(
+                                              bottom: height * 0.06,
+                                              left: width * 0.03,
+                                              child: Text(
+                                                "Price",
+                                                style: TextStyle(
+                                                    fontSize: width * 0.05,
+                                                    color: Colors.white,
+                                                    fontWeight:
+                                                        FontWeight.normal),
+                                              )),
+                                          Positioned(
+                                              bottom: height * 0.03,
+                                              left: width * 0.03,
+                                              child: RichText(
+                                                text: TextSpan(children: [
+                                                  TextSpan(
+                                                    text:
+                                                        packagesandoffer[index]
+                                                                .price
+                                                                .toString() +
+                                                            "\$",
+                                                    style: TextStyle(
+                                                        fontSize: width * 0.05,
+                                                        color: Colors.white,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                  TextSpan(
+                                                    text: "   4̶0̶0̶\$",
+                                                    style: TextStyle(
+                                                        fontSize: width * 0.05,
+                                                        color:
+                                                            Color(0xffF35162),
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  )
+                                                ]),
+                                              )),
+                                        ],
+                                      ),
+                                    )),
+                              ),
+                            ),
+                          );
+                        })),
                 SizedBox(height: height * 0.08),
                 Padding(
                   padding: EdgeInsets.only(
@@ -366,7 +646,19 @@ class HomePageScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                )
+                ),
+                SizedBox(height: height * 0.02),
+                Container(
+                    height: height * 0.31,
+                    child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        shrinkWrap: true,
+                        itemCount: controller.favoritesaloon.length,
+                        itemBuilder: (context, index) {
+                          return SaloonFavouriteCard(
+                              index: index, controller: controller);
+                        })),
+                SizedBox(height: height * 0.02),
               ],
             ),
           )

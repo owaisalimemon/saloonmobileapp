@@ -12,6 +12,8 @@ final getnav = ChangeNotifierProvider<BottomContoller>((ref) {
 class BottomContoller extends ChangeNotifier {
   int currentpage = 2;
 
+  Widget routing = HomePageScreen();
+
   onchange(int page) {
     currentpage = page;
     notifyListeners();
