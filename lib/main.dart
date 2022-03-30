@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:saloonmobileapp/UI/admin/signinchoice.dart';
 import 'package:saloonmobileapp/UI/customer/bottomnavbar.dart';
+import 'package:saloonmobileapp/UI/customer/filterscreen.dart';
 import 'package:saloonmobileapp/UI/mainscreen/connect_with_screen.dart';
 import 'package:saloonmobileapp/UI/mainscreen/forgetpasswordscreen.dart';
 import 'package:saloonmobileapp/UI/mainscreen/loginscreen.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(fontFamily: 'Sofia'),
-      home: CustomBottomNavBar(),
+      home: FilterScreen(),
     );
   }
 }

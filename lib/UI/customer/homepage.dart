@@ -451,7 +451,7 @@ class HomePageScreen extends ConsumerWidget {
                                         color: Colors.red,
                                         image: DecorationImage(
                                             image: AssetImage(
-                                                "assets/images/salooimage.png"),
+                                                "assets/images/offerandpanckageimage.png"),
                                             fit: BoxFit.fill)),
                                     child: Container(
                                       height: height * 0.25,
