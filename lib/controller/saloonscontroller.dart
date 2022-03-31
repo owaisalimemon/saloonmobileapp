@@ -13,6 +13,13 @@ final getsaloon = ChangeNotifierProvider<SaloonController>((
 });
 
 class SaloonController extends ChangeNotifier {
+  int checktoggle = 0;
+
+  changetoggle(int check) {
+    this.checktoggle = check;
+    notifyListeners();
+  }
+
   SaloonController() {
     getfavouritesaloons();
   }
@@ -51,6 +58,42 @@ class SaloonController extends ChangeNotifier {
         favourite: false,
         neworold: false,
         openorclose: false)
+  ];
+
+  // List<Packageandodder> packagesandoffer = [
+  //   Packageandodder(
+  //       image: 'assets/images/offerandpanckageimage.png',
+  //       percentoff: 20,
+  //       price: 320,
+  //       name: "Manicure Pedicure",
+  //       deal: "Double Deal",
+  //       dealno: "#202020",
+  //       validtill: "20th  Sept 2021",
+  //       active: true),
+  //   Packageandodder(
+  //       image: 'assets/images/offerandpanckageimage.png',
+  //       percentoff: 20,
+  //       price: 320,
+  //       name: "Manicure Pedicure",
+  //       deal: "Double Deal",
+  //       dealno: "#202020",
+  //       validtill: "20th  Sept 2021",
+  //       active: false),
+  // ];
+
+  List<Categories> categori = [
+    Categories(
+        backimage: "assets/images/hairimage.png",
+        fronticon: "assets/images/hairwhite.png",
+        text: "Hair Saloon"),
+    Categories(
+        backimage: "assets/images/nailimage.png",
+        fronticon: "assets/images/nailwhite.png",
+        text: "Nail Saloon"),
+    Categories(
+        backimage: "assets/images/barberimage.png",
+        fronticon: "assets/images/barberwhite.png",
+        text: "Barber Shop"),
   ];
 
   getfavouritesaloons() {
