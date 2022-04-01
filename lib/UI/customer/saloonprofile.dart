@@ -4,6 +4,7 @@ import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:readmore/readmore.dart';
 import 'package:saloonmobileapp/UI/customer/widgets/infotabsaloonprofile.dart';
+import 'package:saloonmobileapp/UI/customer/widgets/packagescard.dart';
 import 'package:saloonmobileapp/controller/saloonscontroller.dart';
 
 import 'package:saloonmobileapp/extrahelper/colors.dart';
@@ -467,8 +468,27 @@ class SaloonProfile extends ConsumerWidget {
                                             ],
                                           )
                                         : controller.checktoggle == 1
-                                            ? Column(
-                                                children: [],
+                                            ? Padding(
+                                                padding: EdgeInsets.symmetric(
+                                                    horizontal: width * 0.05),
+                                                child: Column(
+                                                  children: [
+                                                    ListView.builder(
+                                                        shrinkWrap: true,
+                                                        itemCount: controller
+                                                            .packagesandoffer
+                                                            .length,
+                                                        physics:
+                                                            NeverScrollableScrollPhysics(),
+                                                        itemBuilder:
+                                                            (context, index) {
+                                                          return PackagesCard(
+                                                              index: index,
+                                                              controller:
+                                                                  controller);
+                                                        })
+                                                  ],
+                                                ),
                                               )
                                             : Container()
                                   ],

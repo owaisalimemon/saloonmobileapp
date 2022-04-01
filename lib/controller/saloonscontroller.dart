@@ -24,6 +24,28 @@ class SaloonController extends ChangeNotifier {
     getfavouritesaloons();
   }
   List<Saloons> favoritesaloon = [];
+
+  List<Packageandodder> packagesandoffer = [
+    Packageandodder(
+        image: "assets/images/offerandpanckageimage.png",
+        percentoff: 20,
+        price: 320,
+        name: "Manicure Pedicure",
+        deal: "Double Deal",
+        dealno: "#202020",
+        validtill: "20th  Sept 2021",
+        active: true),
+    Packageandodder(
+        image: "assets/images/offerandpanckageimage.png",
+        percentoff: 20,
+        price: 320,
+        name: "Manicure Pedicure",
+        deal: "Double Deal",
+        dealno: "#202020",
+        validtill: "20th  Sept 2021",
+        active: false),
+  ];
+
   List<Saloons> saloons = [
     Saloons(
         name: "Looks Unisex Saloon",
