@@ -5,10 +5,34 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:readmore/readmore.dart';
 import 'package:saloonmobileapp/UI/customer/widgets/infotabsaloonprofile.dart';
 import 'package:saloonmobileapp/UI/customer/widgets/packagescard.dart';
+import 'package:saloonmobileapp/UI/customer/widgets/photostabsaloonprofile.dart';
+import 'package:saloonmobileapp/UI/customer/widgets/reviestabsaloonprofile.dart';
 import 'package:saloonmobileapp/controller/saloonscontroller.dart';
 
 import 'package:saloonmobileapp/extrahelper/colors.dart';
 import 'package:toggle_switch/toggle_switch.dart';
+
+class Servicesdetail {
+  String title;
+  String subtitle;
+  int value;
+
+  Servicesdetail(
+      {required this.title, required this.subtitle, required this.value});
+}
+
+class Services {
+  String image;
+  String title;
+  String subtitle;
+  List<Servicesdetail> servicedetail;
+
+  Services(
+      {required this.image,
+      required this.title,
+      required this.subtitle,
+      required this.servicedetail});
+}
 
 class Employee {
   String name;
@@ -366,7 +390,9 @@ class SaloonProfile extends ConsumerWidget {
                               color: Colors.white,
                               height: height * 1.5,
                               child: TabBarView(children: [
-                                InfoTabProfileScreen(),
+                                InfoTabProfileScreen(
+                                  controller: controller,
+                                ),
                                 Column(
                                   children: [
                                     Padding(
@@ -412,58 +438,130 @@ class SaloonProfile extends ConsumerWidget {
                                     controller.checktoggle == 0
                                         ? Column(
                                             children: [
-                                              ExpansionTile(
-                                                collapsedBackgroundColor:
-                                                    Color(0xffEFF6F6),
-                                                backgroundColor: Colors.white,
-                                                leading: CircleAvatar(
-                                                  backgroundColor:
-                                                      Color(0xffA8CDF5),
-                                                  child: ClipOval(
-                                                    child: Image.asset(
-                                                      "assets/images/icons/hairstyleicon.png",
-                                                      scale: width * 0.009,
+                                              Card(
+                                                elevation: 0,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(15),
+                                                ),
+                                                clipBehavior: Clip.antiAlias,
+                                                margin: EdgeInsets.zero,
+                                                child: Container(
+                                                  color: Color(0xffEFF6F6),
+                                                  width: width * 0.85,
+                                                  child: ExpansionTile(
+                                                    collapsedBackgroundColor:
+                                                        Color(0xffEFF6F6),
+                                                    backgroundColor:
+                                                        Colors.transparent,
+                                                    leading: CircleAvatar(
+                                                      backgroundColor:
+                                                          Color(0xffA8CDF5),
+                                                      child: ClipOval(
+                                                        child: Image.asset(
+                                                          "assets/images/icons/hairstyleicon.png",
+                                                          scale: width * 0.009,
+                                                        ),
+                                                      ),
                                                     ),
+                                                    title: Text("Service Type",
+                                                        style: TextStyle(
+                                                            fontSize:
+                                                                width * 0.04,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                            color: Color(
+                                                                0xff989696))),
+                                                    subtitle: Text(
+                                                        "HairStyling",
+                                                        style: TextStyle(
+                                                            fontSize:
+                                                                width * 0.05,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                            color: Color(
+                                                                0xff707070))),
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsets.only(
+                                                                left: width *
+                                                                    0.05,
+                                                                bottom: height *
+                                                                    0.03),
+                                                        child: Align(
+                                                            alignment: Alignment
+                                                                .topLeft,
+                                                            child: Container(
+                                                              width:
+                                                                  width * 0.8,
+                                                              height:
+                                                                  height * 0.2,
+                                                              child: Column(
+                                                                children: [
+                                                                  Expanded(
+                                                                    flex: 1,
+                                                                    child:
+                                                                        RadioListTile(
+                                                                      value: 0,
+                                                                      groupValue:
+                                                                          controller
+                                                                              .groupValue,
+                                                                      title: Text(
+                                                                          "Cut with scissors, 60 min"),
+                                                                      subtitle:
+                                                                          Text(
+                                                                              "Recommended with longer hairstyles"),
+                                                                      onChanged:
+                                                                          (newValue) {
+                                                                        controller.groupValue =
+                                                                            int.parse(newValue.toString());
+                                                                        controller
+                                                                            .notifyListeners();
+                                                                      },
+                                                                      activeColor:
+                                                                          ColorsX
+                                                                              .blue_text_color,
+                                                                      selected:
+                                                                          false,
+                                                                    ),
+                                                                  ),
+                                                                  Expanded(
+                                                                    flex: 2,
+                                                                    child:
+                                                                        RadioListTile(
+                                                                      value: 1,
+                                                                      groupValue:
+                                                                          controller
+                                                                              .groupValue,
+                                                                      title: Text(
+                                                                          "Cut with machine + scissors, 45 min"),
+                                                                      subtitle:
+                                                                          Text(
+                                                                              "Recommended for short hairstyles, machine and scissors"),
+                                                                      onChanged:
+                                                                          (newValue) {
+                                                                        controller.groupValue =
+                                                                            int.parse(newValue.toString());
+                                                                        controller
+                                                                            .notifyListeners();
+                                                                      },
+                                                                      activeColor:
+                                                                          ColorsX
+                                                                              .blue_text_color,
+                                                                      selected:
+                                                                          false,
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            )),
+                                                      ),
+                                                    ],
                                                   ),
                                                 ),
-                                                title: Text("Service Type",
-                                                    style: TextStyle(
-                                                        fontSize: width * 0.04,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        color:
-                                                            Color(0xff989696))),
-                                                subtitle: Text("HairStyling",
-                                                    style: TextStyle(
-                                                        fontSize: width * 0.05,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        color:
-                                                            Color(0xff707070))),
-                                                children: [
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                        left: width * 0.05,
-                                                        bottom: height * 0.03),
-                                                    child: Align(
-                                                        alignment:
-                                                            Alignment.topLeft,
-                                                        child: Container(
-                                                          width: width * 0.8,
-                                                          child: Text(
-                                                              "Cut with scissors, 60 min",
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .justify,
-                                                              style: TextStyle(
-                                                                  fontSize:
-                                                                      width *
-                                                                          0.04,
-                                                                  color: Colors
-                                                                      .black)),
-                                                        )),
-                                                  ),
-                                                ],
                                               ),
                                             ],
                                           )
@@ -493,8 +591,8 @@ class SaloonProfile extends ConsumerWidget {
                                             : Container()
                                   ],
                                 ),
-                                Text("3"),
-                                Text("4"),
+                                ReviewTabSaloonProfile(controller: controller),
+                                PhotosTabSaloonProfile(controller: controller)
                               ]),
                             ),
                           ],

@@ -14,6 +14,9 @@ final getsaloon = ChangeNotifierProvider<SaloonController>((
 
 class SaloonController extends ChangeNotifier {
   int checktoggle = 0;
+  int groupValue = -1;
+
+  String? dropdownValue;
 
   changetoggle(int check) {
     this.checktoggle = check;
@@ -80,6 +83,17 @@ class SaloonController extends ChangeNotifier {
         favourite: false,
         neworold: false,
         openorclose: false)
+  ];
+
+  List<String> photos = [
+    'assets/images/photos1.png',
+    'assets/images/photos2.png',
+    'assets/images/photos3.png',
+    'assets/images/photos1.png',
+    'assets/images/photos2.png',
+    'assets/images/photos3.png',
+    'assets/images/photos1.png',
+    'assets/images/photos2.png',
   ];
 
   // List<Packageandodder> packagesandoffer = [

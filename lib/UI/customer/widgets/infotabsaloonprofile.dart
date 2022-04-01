@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:saloonmobileapp/UI/widgets/roundbutton.dart';
+import 'package:saloonmobileapp/controller/saloonscontroller.dart';
 import 'package:saloonmobileapp/extrahelper/colors.dart';
 
 class InfoTabProfileScreen extends StatelessWidget {
-  InfoTabProfileScreen({Key? key}) : super(key: key);
+  InfoTabProfileScreen({required this.controller});
 
-  List<String> photos = [
-    'assets/images/photos1.png',
-    'assets/images/photos2.png',
-    'assets/images/photos3.png',
-    'assets/images/photos1.png',
-    'assets/images/photos2.png',
-    'assets/images/photos3.png'
-  ];
+  SaloonController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -212,7 +206,7 @@ class InfoTabProfileScreen extends StatelessWidget {
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
-                itemCount: photos.length,
+                itemCount: controller.photos.length,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: EdgeInsets.only(
@@ -226,7 +220,7 @@ class InfoTabProfileScreen extends StatelessWidget {
                               borderRadius: BorderRadius.circular(15),
                               color: Colors.red,
                               image: DecorationImage(
-                                  image: AssetImage(photos[index]),
+                                  image: AssetImage(controller.photos[index]),
                                   fit: BoxFit.fill))),
                     ),
                   );
@@ -247,7 +241,7 @@ class InfoTabProfileScreen extends StatelessWidget {
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
-                itemCount: photos.length,
+                itemCount: 5,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: EdgeInsets.only(
