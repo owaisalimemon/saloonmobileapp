@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:saloonmobileapp/UI/customer/homepage.dart';
+import 'package:saloonmobileapp/UI/customer/saloonprofile.dart';
 
 final getsaloon = ChangeNotifierProvider<SaloonController>((
   ref,
@@ -14,7 +15,6 @@ final getsaloon = ChangeNotifierProvider<SaloonController>((
 
 class SaloonController extends ChangeNotifier {
   int checktoggle = 0;
-  int groupValue = -1;
 
   String? dropdownValue;
 
@@ -27,6 +27,136 @@ class SaloonController extends ChangeNotifier {
     getfavouritesaloons();
   }
   List<Saloons> favoritesaloon = [];
+
+  List<Services> addons = [
+    Services(
+        image: "assets/images/icons/hairstyleicon.png",
+        title: "Lotion",
+        subtitle: "Product Type",
+        servicedetail: [
+          Servicesdetail(
+              title: "Body Lotion 500ml",
+              subtitle: "Recommended for Soft skin",
+              price: 50),
+          Servicesdetail(
+              title: "Body Lotion 800ml",
+              subtitle: "Recommended for Soft skin",
+              price: 50),
+        ],
+        groupvalue: -1),
+    Services(
+        image: "assets/images/icons/coloringandlashesicon.png",
+        title: "Coloring",
+        subtitle: "Product Type",
+        servicedetail: [
+          Servicesdetail(
+              title: "Body Lotion 500ml",
+              subtitle: "Recommended for Soft skin",
+              price: 50),
+          Servicesdetail(
+              title: "Body Lotion 800ml",
+              subtitle: "Recommended for Soft skin",
+              price: 50),
+        ],
+        groupvalue: -1),
+    Services(
+        image: "assets/images/icons/coloringandlashesicon.png",
+        title: "Lashes",
+        subtitle: "Product Type",
+        servicedetail: [
+          Servicesdetail(
+              title: "Body Lotion 500ml",
+              subtitle: "Recommended for Soft skin",
+              price: 50),
+          Servicesdetail(
+              title: "Body Lotion 800ml",
+              subtitle: "Recommended for Soft skin",
+              price: 50),
+        ],
+        groupvalue: -1),
+    Services(
+        image: "assets/images/icons/coloringandlashesicon.png",
+        title: "Creative Coloring",
+        subtitle: "Product Type",
+        servicedetail: [
+          Servicesdetail(
+              title: "Body Lotion 500ml",
+              subtitle: "Recommended for Soft skin",
+              price: 50),
+          Servicesdetail(
+              title: "Body Lotion 800ml",
+              subtitle: "Recommended for Soft skin",
+              price: 50),
+        ],
+        groupvalue: -1)
+  ];
+
+  List<Services> services = [
+    Services(
+        image: "assets/images/icons/hairstyleicon.png",
+        title: "HairStyling",
+        subtitle: "Service Type",
+        servicedetail: [
+          Servicesdetail(
+              title: "Cut with scissors, 60 min",
+              subtitle: "Recommended with longer hairstyles",
+              price: 0),
+          Servicesdetail(
+              title: "Cut with machine + scissors, 45 min",
+              subtitle:
+                  "Recommended for short hairstyles, machine and scissors",
+              price: 0),
+        ],
+        groupvalue: -1),
+    Services(
+        image: "assets/images/icons/coloringandlashesicon.png",
+        title: "Coloring",
+        subtitle: "Service Type",
+        servicedetail: [
+          Servicesdetail(
+              title: "Cut with scissors, 60 min",
+              subtitle: "Recommended with longer hairstyles",
+              price: 0),
+          Servicesdetail(
+              title: "Cut with machine + scissors, 45 min",
+              subtitle:
+                  "Recommended for short hairstyles, machine and scissors",
+              price: 0),
+        ],
+        groupvalue: -1),
+    Services(
+        image: "assets/images/icons/coloringandlashesicon.png",
+        title: "Lashes/Eyebrows",
+        subtitle: "Service Type",
+        servicedetail: [
+          Servicesdetail(
+              title: "Cut with scissors, 60 min",
+              subtitle: "Recommended with longer hairstyles",
+              price: 0),
+          Servicesdetail(
+              title: "Cut with machine + scissors, 45 min",
+              subtitle:
+                  "Recommended for short hairstyles, machine and scissors",
+              price: 0),
+        ],
+        groupvalue: -1),
+    Services(
+        image: "assets/images/icons/coloringandlashesicon.png",
+        title: "Creative Coloring",
+        subtitle: "Service Type",
+        servicedetail: [
+          Servicesdetail(
+              title: "Cut with scissors, 60 min",
+              subtitle: "Recommended with longer hairstyles",
+              price: 0),
+          Servicesdetail(
+              title: "Cut with machine + scissors, 45 min",
+              subtitle:
+                  "Recommended for short hairstyles, machine and scissors",
+              price: 0),
+        ],
+        groupvalue: -1)
+  ];
 
   List<Packageandodder> packagesandoffer = [
     Packageandodder(
