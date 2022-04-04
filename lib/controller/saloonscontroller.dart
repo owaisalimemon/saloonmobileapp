@@ -14,6 +14,25 @@ final getsaloon = ChangeNotifierProvider<SaloonController>((
 });
 
 class SaloonController extends ChangeNotifier {
+  int currentpage = 0;
+
+  int selectedvaluefroservices = 0;
+
+  OnboardingScreen(int page) {
+    currentpage = page;
+    notifyListeners();
+  }
+
+  checkselectedservices() {
+    selectedvaluefroservices = 0;
+    for (int i = 0; i < services.length; i++) {
+      if (services[i].groupvalue != -1) {
+        selectedvaluefroservices += 1;
+      }
+    }
+    notifyListeners();
+  }
+
   int checktoggle = 0;
 
   String? dropdownValue;

@@ -1,3 +1,4 @@
+import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
@@ -9,6 +10,7 @@ import 'package:saloonmobileapp/UI/customer/widgets/infotabsaloonprofile.dart';
 import 'package:saloonmobileapp/UI/customer/widgets/packagescard.dart';
 import 'package:saloonmobileapp/UI/customer/widgets/photostabsaloonprofile.dart';
 import 'package:saloonmobileapp/UI/customer/widgets/reviestabsaloonprofile.dart';
+import 'package:saloonmobileapp/UI/widgets/roundbutton.dart';
 import 'package:saloonmobileapp/controller/saloonscontroller.dart';
 
 import 'package:saloonmobileapp/extrahelper/colors.dart';
@@ -54,6 +56,8 @@ class Employee {
 class SaloonProfile extends ConsumerWidget {
   SaloonProfile({Key? key}) : super(key: key);
 
+  final int _numPages = 3;
+
   List<Employee> emplyeedata = [
     Employee(
         image: 'assets/images/emplyeeimage.png',
@@ -88,7 +92,27 @@ class SaloonProfile extends ConsumerWidget {
     Image.asset('assets/images/imageprofileslideimage.png', fit: BoxFit.fill),
   ];
 
-  @override
+  List<Widget> _buildPageIndicator(int currentpage) {
+    List<Widget> list = [];
+    for (int i = 0; i < images.length; i++) {
+      list.add(i == currentpage ? _indicator(true) : _indicator(false));
+    }
+    return list;
+  }
+
+  Widget _indicator(bool isActive) {
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 150),
+      margin: EdgeInsets.symmetric(horizontal: 8.0),
+      height: 7.0,
+      width: isActive ? 35.0 : 10.0,
+      decoration: BoxDecoration(
+        color: isActive ? ColorsX.blue_gradient_dark : Colors.grey,
+        borderRadius: BorderRadius.all(Radius.circular(12)),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context, watch) {
     var controller = watch(getsaloon);
@@ -98,26 +122,30 @@ class SaloonProfile extends ConsumerWidget {
     return Scaffold(
         body: SingleChildScrollView(
       child: Stack(
+        alignment: Alignment.center,
         children: [
           Container(
             width: width,
             height: height * 2,
           ),
-          Container(
-            height: height * 0.4,
-            width: width,
-            child: ImageSlideshow(
-              children: images,
-              width: double.infinity,
+          Positioned(
+            top: 0,
+            child: Container(
               height: height * 0.4,
-              initialPage: 0,
-              indicatorColor: ColorsX.blue_text_color,
-              indicatorBackgroundColor: Colors.grey,
-              onPageChanged: (value) {
-                // debugPrint('Page changed: $value');
-              },
-              autoPlayInterval: 3000,
-              isLoop: true,
+              width: width,
+              child: ImageSlideshow(
+                children: images,
+                width: double.infinity,
+                height: height * 0.4,
+                initialPage: 0,
+                indicatorColor: ColorsX.blue_text_color,
+                indicatorBackgroundColor: Colors.grey,
+                onPageChanged: (value) {
+                  controller.OnboardingScreen(value);
+                },
+                autoPlayInterval: 3000,
+                isLoop: true,
+              ),
             ),
           ),
           Positioned(
@@ -142,6 +170,13 @@ class SaloonProfile extends ConsumerWidget {
                       size: width * 0.08,
                     )),
               ],
+            ),
+          ),
+          Positioned(
+            top: height * 0.3,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: _buildPageIndicator(controller.currentpage),
             ),
           ),
           Positioned(

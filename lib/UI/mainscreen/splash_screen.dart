@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:saloonmobileapp/UI/mainscreen/onboardingscreen.dart';
 import 'package:saloonmobileapp/UI/widgets/roundbutton.dart';
 import 'package:saloonmobileapp/extrahelper/colors.dart';
 
@@ -53,7 +54,12 @@ class SplashScreen extends StatelessWidget {
               SizedBox(height: height * 0.17),
               RoundCustomButton(
                 text: "Get Started",
-                ontap: () {},
+                ontap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => OnBoardingScreen()),
+                  );
+                },
               ),
             ],
           ),

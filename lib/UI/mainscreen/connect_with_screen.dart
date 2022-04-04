@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:saloonmobileapp/UI/mainscreen/loginscreen.dart';
 import 'package:saloonmobileapp/UI/widgets/emailbutton.dart';
 import 'package:saloonmobileapp/extrahelper/colors.dart';
 
@@ -61,7 +62,12 @@ class ConnectWithScreen extends StatelessWidget {
                     value: "Sign up with email",
                     colorCode: 0xffffffff,
                     textColor: 0xff606060,
-                    ontap: () {}),
+                    ontap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Login()),
+                      );
+                    }),
                 SizedBox(height: height * 0.02),
                 Social_button(
                     imagePath: 'assets/images/icons/google.png',

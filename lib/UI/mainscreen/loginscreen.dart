@@ -1,6 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:saloonmobileapp/UI/mainscreen/forgetpasswordscreen.dart';
+import 'package:saloonmobileapp/UI/mainscreen/phonenumberscreen.dart';
+import 'package:saloonmobileapp/UI/mainscreen/signup_screen.dart';
+import 'package:saloonmobileapp/UI/mainscreen/singinchoice.dart';
 import 'package:saloonmobileapp/UI/widgets/customtextfiled.dart';
 import 'package:saloonmobileapp/UI/widgets/roundbutton.dart';
 import 'package:saloonmobileapp/extrahelper/colors.dart';
@@ -63,13 +67,30 @@ class Login extends StatelessWidget {
                       controller: TextEditingController(),
                       icon: "assets/images/password.png",
                     ),
-                    RoundCustomButton(text: "Login", ontap: () {}),
-                    Text(
-                      "Forgot your password?",
-                      style: TextStyle(
-                          fontSize: width * 0.04,
-                          color: Color(0xff707070),
-                          fontWeight: FontWeight.w400),
+                    RoundCustomButton(
+                        text: "Login",
+                        ontap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SignInChoice()),
+                          );
+                        }),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ForgetPasswordScreen()),
+                        );
+                      },
+                      child: Text(
+                        "Forgot your password?",
+                        style: TextStyle(
+                            fontSize: width * 0.04,
+                            color: Color(0xff707070),
+                            fontWeight: FontWeight.w400),
+                      ),
                     ),
                     RichText(
                       text: TextSpan(
@@ -80,7 +101,10 @@ class Login extends StatelessWidget {
                             color: ColorsX.subBlack),
                         children: <TextSpan>[
                           TextSpan(
-                              recognizer: TapGestureRecognizer()..onTap = () {},
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () {
+                                  print('dabab');
+                                },
                               text: 'Sign Up',
                               style: TextStyle(
                                   fontSize: width * 0.045,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:saloonmobileapp/UI/customer/saloonprofile.dart';
 import 'package:saloonmobileapp/controller/saloonscontroller.dart';
 import 'package:saloonmobileapp/extrahelper/colors.dart';
 
@@ -17,6 +18,10 @@ class SaloonCard extends StatelessWidget {
       child: GestureDetector(
         onTap: () {
           print("again clicked");
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => SaloonProfile()),
+          );
         },
         child: Card(
           elevation: 2,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:saloonmobileapp/UI/mainscreen/connect_with_screen.dart';
 
 import 'package:saloonmobileapp/UI/mainscreen/splash_screen.dart';
 import 'package:saloonmobileapp/UI/widgets/roundbutton.dart';
@@ -165,7 +166,8 @@ class OnBoardingScreen extends ConsumerWidget {
                     } else {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => SplashScreen()),
+                        MaterialPageRoute(
+                            builder: (context) => ConnectWithScreen()),
                       );
                     }
                   },
@@ -180,7 +182,8 @@ class OnBoardingScreen extends ConsumerWidget {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => SplashScreen()),
+                        MaterialPageRoute(
+                            builder: (context) => ConnectWithScreen()),
                       );
                     },
                     child: Container(

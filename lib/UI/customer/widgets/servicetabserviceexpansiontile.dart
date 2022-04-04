@@ -1,4 +1,6 @@
+import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
+import 'package:saloonmobileapp/UI/widgets/roundbutton.dart';
 import 'package:saloonmobileapp/controller/saloonscontroller.dart';
 import 'package:saloonmobileapp/extrahelper/colors.dart';
 
@@ -80,7 +82,30 @@ class CustomExpansionTileforsevices extends StatelessWidget {
                                   onChanged: (newValue) {
                                     controller.services[index].groupvalue =
                                         int.parse(newValue.toString());
+                                    controller.checkselectedservices();
                                     controller.notifyListeners();
+                                    Flushbar(
+                                      title: "Looks Unisex Saloon",
+                                      titleColor: Colors.black,
+                                      messageColor: Color(0xff70B4FF),
+                                      mainButton: Padding(
+                                        padding: EdgeInsets.only(
+                                            right: width * 0.02),
+                                        child: Container(
+                                          width: width * 0.2,
+                                          height: height * 0.05,
+                                          child: RoundCustomButton(
+                                              text: "Book Now", ontap: () {}),
+                                        ),
+                                      ),
+                                      message: controller
+                                              .selectedvaluefroservices
+                                              .toString() +
+                                          " Selected",
+                                      titleSize: width * 0.05,
+                                      messageSize: width * 0.045,
+                                      backgroundColor: Color(0xffF3F5F6),
+                                    )..show(context);
                                   },
                                   activeColor: ColorsX.blue_text_color,
                                   selected: false,

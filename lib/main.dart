@@ -14,6 +14,7 @@ import 'package:saloonmobileapp/UI/mainscreen/otpscreen.dart';
 import 'package:saloonmobileapp/UI/mainscreen/phonenumberscreen.dart';
 import 'package:saloonmobileapp/UI/mainscreen/signup_screen.dart';
 import 'package:saloonmobileapp/UI/mainscreen/singinchoice.dart';
+import 'package:saloonmobileapp/UI/mainscreen/splash_screen.dart';
 
 void main() {
   runApp(ProviderScope(child: MyApp()));
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(fontFamily: 'Sofia'),
-      home: SaloonProfile(),
+      home: SplashScreen(),
     );
   }
 }
