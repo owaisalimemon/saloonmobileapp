@@ -123,7 +123,7 @@ class OnBoardingScreen extends ConsumerWidget {
               ),
               SizedBox(height: _height * 0.045),
               Container(
-                height: _height * 0.13,
+                height: _height * 0.15,
                 child: Column(
                   children: [
                     Center(

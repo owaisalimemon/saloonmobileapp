@@ -114,7 +114,7 @@ class HomePageScreen extends ConsumerWidget {
                   Padding(
                     padding: EdgeInsets.only(left: width * 0.075),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           "Hello, John Doe",
@@ -123,7 +123,6 @@ class HomePageScreen extends ConsumerWidget {
                               fontSize: width * 0.08,
                               fontWeight: FontWeight.w900),
                         ),
-                        SizedBox(width: width * 0.12),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -169,41 +168,45 @@ class HomePageScreen extends ConsumerWidget {
                   Padding(
                     padding: EdgeInsets.only(left: width * 0.075),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.location_pin,
-                              size: width * 0.07,
-                              color: Colors.black,
-                            )),
-
-                        Text(
-                          "New york",
-                          style: TextStyle(
-                              color: ColorsX.myblack,
-                              fontWeight: FontWeight.w400,
-                              fontSize: width * 0.05),
+                        Row(
+                          children: [
+                            IconButton(
+                                onPressed: () {},
+                                icon: Icon(
+                                  Icons.location_pin,
+                                  size: width * 0.07,
+                                  color: Colors.black,
+                                )),
+                            Text(
+                              "New york",
+                              style: TextStyle(
+                                  color: ColorsX.myblack,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: width * 0.05),
+                            ),
+                          ],
                         ),
 
-                        SizedBox(
-                          width: width * 0.265,
+                        Row(
+                          children: [
+                            Text(
+                              "Change",
+                              style: TextStyle(
+                                  color: ColorsX.blue_text_color,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: width * 0.05),
+                            ),
+                            IconButton(
+                                onPressed: () {},
+                                icon: Icon(
+                                  Icons.change_history_rounded,
+                                  size: width * 0.07,
+                                  color: ColorsX.blue_text_color,
+                                )),
+                          ],
                         ),
-                        Text(
-                          "Change",
-                          style: TextStyle(
-                              color: ColorsX.blue_text_color,
-                              fontWeight: FontWeight.w400,
-                              fontSize: width * 0.05),
-                        ),
-                        IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.change_history_rounded,
-                              size: width * 0.07,
-                              color: ColorsX.blue_text_color,
-                            )),
                         // Expanded(child: _myLocationText(context, "Change", 0xff70b4ff))
                       ],
                     ),
@@ -377,7 +380,7 @@ class HomePageScreen extends ConsumerWidget {
                   ),
                   SizedBox(height: height * 0.02),
                   Container(
-                      height: height * 0.31,
+                      height: height * 0.311,
                       child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           shrinkWrap: true,
@@ -465,13 +468,13 @@ class HomePageScreen extends ConsumerWidget {
                   ),
                   SizedBox(height: height * 0.02),
                   Container(
-                      height: height * 0.31,
+                      height: height * 0.311,
                       child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           shrinkWrap: true,
                           itemCount: controller.favoritesaloon.length,
                           itemBuilder: (context, index) {
-                            return SaloonFavouriteCard(
+                            return SaloonCard(
                                 index: index, controller: controller);
                           })),
                   SizedBox(height: height * 0.02),

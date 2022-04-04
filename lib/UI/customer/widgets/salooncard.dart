@@ -195,13 +195,13 @@ class SaloonCard extends StatelessWidget {
                                   children: [
                                     Image.asset(
                                       'assets/images/icons/saloonpinicon.png',
-                                      scale: width * 0.007,
+                                      scale: width * 0.009,
                                     ),
                                     SizedBox(width: width * 0.02),
                                     Text(
                                       controller.saloons[index].address,
                                       style: TextStyle(
-                                          fontSize: width * 0.035,
+                                          fontSize: width * 0.03,
                                           color: Color(0xff707070)),
                                     )
                                   ],
@@ -211,13 +211,13 @@ class SaloonCard extends StatelessWidget {
                                   children: [
                                     Image.asset(
                                       'assets/images/icons/saloonlocationicon.png',
-                                      scale: width * 0.007,
+                                      scale: width * 0.009,
                                     ),
                                     SizedBox(width: width * 0.02),
                                     Text(
                                       controller.saloons[index].distance,
                                       style: TextStyle(
-                                          fontSize: width * 0.035,
+                                          fontSize: width * 0.03,
                                           color: Color(0xff707070)),
                                     )
                                   ],
@@ -232,13 +232,13 @@ class SaloonCard extends StatelessWidget {
                                   children: [
                                     Image.asset(
                                       'assets/images/icons/salooncalendaricon.png',
-                                      scale: width * 0.007,
+                                      scale: width * 0.009,
                                     ),
                                     SizedBox(width: width * 0.02),
                                     Text(
                                       controller.saloons[index].weekdays,
                                       style: TextStyle(
-                                          fontSize: width * 0.035,
+                                          fontSize: width * 0.03,
                                           color: Color(0xff707070)),
                                     )
                                   ],
@@ -248,13 +248,13 @@ class SaloonCard extends StatelessWidget {
                                   children: [
                                     Image.asset(
                                       'assets/images/icons/saloonclockicon.png',
-                                      scale: width * 0.007,
+                                      scale: width * 0.009,
                                     ),
                                     SizedBox(width: width * 0.02),
                                     Text(
                                       controller.saloons[index].timings,
                                       style: TextStyle(
-                                          fontSize: width * 0.035,
+                                          fontSize: width * 0.03,
                                           color: Color(0xff707070)),
                                     )
                                   ],

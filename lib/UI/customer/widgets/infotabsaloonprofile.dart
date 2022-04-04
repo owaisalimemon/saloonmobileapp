@@ -136,7 +136,6 @@ class InfoTabProfileScreen extends StatelessWidget {
                             fontSize: width * 0.045,
                             fontWeight: FontWeight.normal,
                             color: Color(0xff707070))),
-                    SizedBox(height: height * 0.01),
                     GestureDetector(
                       onTap: () {
                         print("clieckd");
@@ -161,10 +160,11 @@ class InfoTabProfileScreen extends StatelessWidget {
                 ),
                 Container(
                   height: height * 0.13,
-                  width: width * 0.3,
+                  width: width * 0.25,
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage("assets/images/mapimage.png")),
+                        image: AssetImage("assets/images/mapimage.png"),
+                      ),
                       borderRadius: BorderRadius.circular(15)),
                 ),
               ],

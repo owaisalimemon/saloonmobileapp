@@ -146,7 +146,9 @@ class ReviewTabSaloonProfile extends StatelessWidget {
                                       top: height * 0.03, left: width * 0.05),
                                   child: Text(
                                     "2 hours ago",
-                                    style: TextStyle(color: Color(0xff707070)),
+                                    style: TextStyle(
+                                        color: Color(0xff707070),
+                                        fontSize: width * 0.035),
                                   ))
                             ],
                           ),
