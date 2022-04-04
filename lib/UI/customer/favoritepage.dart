@@ -7,7 +7,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:saloonmobileapp/UI/customer/filterscreen.dart';
+import 'package:saloonmobileapp/UI/customer/widgets/favoritesaloonhorizontal.dart';
 import 'package:saloonmobileapp/UI/customer/widgets/salooncard.dart';
 import 'package:saloonmobileapp/UI/customer/widgets/salooncard.dart';
 import 'package:saloonmobileapp/UI/customer/widgets/saloonfavouritecard.dart';
@@ -18,8 +18,8 @@ import 'package:saloonmobileapp/controller/searchmapcontroller.dart';
 import 'package:saloonmobileapp/extrahelper/colors.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
-class Searchhome extends ConsumerWidget {
-  Searchhome({Key? key}) : super(key: key);
+class Favouritepage extends ConsumerWidget {
+  Favouritepage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, watch) {
@@ -72,14 +72,7 @@ class Searchhome extends ConsumerWidget {
                                         color: Color(0xff707070),
                                       )),
                                   IconButton(
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  FilterScreen()),
-                                        );
-                                      },
+                                      onPressed: () {},
                                       icon: Icon(
                                         Icons.filter_alt_sharp,
                                         size: width * 0.07,
@@ -176,8 +169,8 @@ class Searchhome extends ConsumerWidget {
                           ),
                           GestureDetector(
                             onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => Searchhome()));
+                              // Navigator.of(context).push(MaterialPageRoute(
+                              //     builder: (context) => Searchhome()));
                             },
                             child: Container(
                               height: height * 0.06,
@@ -198,102 +191,15 @@ class Searchhome extends ConsumerWidget {
                       ),
                     ),
                   ),
-                  togglecontroller.checktoggle == 0
-                      ? SizedBox(height: height * 0.08)
-                      : SizedBox(height: height * 0.04),
-                  Stack(
-                    children: [
-                      togglecontroller.checktoggle == 1
-                          ? Center(
-                              child: Container(
-                                height: height * 0.7,
-                                width: width,
-                                color: Colors.white,
-                                child: GoogleMap(
-                                  zoomControlsEnabled: false,
-                                  mapType: MapType.normal,
-                                  initialCameraPosition: CameraPosition(
-                                      target: togglecontroller.latLng,
-                                      zoom: 15),
-                                  onMapCreated:
-                                      (GoogleMapController controller) {
-                                    togglecontroller.mapcontroller
-                                        .complete(controller);
-                                  },
-                                ),
-                              ),
-                            )
-                          : SizedBox(),
-                      Padding(
-                        padding: EdgeInsets.only(
-                            left: width * 0.075,
-                            right: width * 0.075,
-                            top: height * 0.01),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Search Result",
-                              style: TextStyle(
-                                  color: ColorsX.myblack,
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: width * 0.05),
-                            ),
-                            ToggleSwitch(
-                              minHeight: height * 0.04,
-                              minWidth: width * 0.12,
-                              initialLabelIndex: togglecontroller.checktoggle,
-                              cornerRadius: 15.0,
-                              activeFgColor: Colors.white,
-                              inactiveBgColor: Colors.white,
-                              inactiveFgColor: Color(0xffDBDBDB),
-                              borderColor: [
-                                Color(0xffDBDBDB),
-                                Color(0xffDBDBDB),
-                              ],
-                              totalSwitches: 2,
-                              iconSize: width * 0.1,
-                              icons: [Icons.menu, Icons.location_on_outlined],
-                              activeBgColors: [
-                                [ColorsX.blue_text_color],
-                                [ColorsX.blue_text_color],
-                              ],
-                              onToggle: (index) {
-                                togglecontroller.changetoggle(index!);
-                              },
-                            ),
-                          ],
-                        ),
-                      ),
-                      togglecontroller.checktoggle == 1
-                          ? Positioned(
-                              bottom: width * 0.1,
-                              child: Container(
-                                height: height * 0.281,
-                                width: width,
-                                child: ListView.builder(
-                                    scrollDirection: Axis.horizontal,
-                                    shrinkWrap: true,
-                                    itemCount: controller.saloons.length,
-                                    itemBuilder: (context, index) {
-                                      return SaloonMapcard(
-                                          index: index, controller: controller);
-                                    }),
-                              ),
-                            )
-                          : SizedBox()
-                    ],
-                  ),
-                  togglecontroller.checktoggle == 0
-                      ? ListView.builder(
-                          itemCount: controller.saloons.length,
-                          shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
-                          itemBuilder: (context, index) {
-                            return SaloonhorizontalCard(
-                                index: index, controller: controller);
-                          })
-                      : SizedBox(),
+                  SizedBox(height: height * 0.08),
+                  ListView.builder(
+                      itemCount: controller.favoritesaloon.length,
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        return FavSaloonhorizontalCard(
+                            index: index, controller: controller);
+                      })
                 ],
               ),
             )

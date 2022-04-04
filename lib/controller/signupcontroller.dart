@@ -4,6 +4,7 @@ import 'package:ars_dialog/ars_dialog.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:saloonmobileapp/UI/mainscreen/phonenumberscreen.dart';
 import 'package:saloonmobileapp/helper/snackbar.dart';
 import 'package:saloonmobileapp/helper/validation.dart';
 
@@ -51,5 +52,10 @@ class SignupController extends ChangeNotifier {
     }
 
     progressDialog.dismiss();
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => PhoneNumberScreen()),
+    );
   }
 }

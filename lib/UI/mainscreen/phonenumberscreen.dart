@@ -1,6 +1,7 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:saloonmobileapp/UI/mainscreen/otpscreen.dart';
 import 'package:saloonmobileapp/UI/widgets/customtextfiled.dart';
 import 'package:saloonmobileapp/UI/widgets/roundbutton.dart';
 import 'package:saloonmobileapp/controller/authconroller.dart';
@@ -139,7 +140,14 @@ class PhoneNumberScreen extends ConsumerWidget {
                   ),
                 ),
                 SizedBox(height: height * 0.05),
-                RoundCustomButton(text: "Continue", ontap: () {})
+                RoundCustomButton(
+                    text: "Continue",
+                    ontap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => OTPScreen()),
+                      );
+                    })
               ],
             )),
       ),

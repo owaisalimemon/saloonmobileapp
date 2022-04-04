@@ -4,6 +4,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:saloonmobileapp/UI/mainscreen/loginscreen.dart';
+import 'package:saloonmobileapp/UI/mainscreen/phonenumberscreen.dart';
+import 'package:saloonmobileapp/UI/mainscreen/singinchoice.dart';
 import 'package:saloonmobileapp/UI/widgets/customtextfiled.dart';
 import 'package:saloonmobileapp/UI/widgets/roundbutton.dart';
 import 'package:saloonmobileapp/controller/signupcontroller.dart';
@@ -200,22 +203,29 @@ class SignUp extends ConsumerWidget {
                     ),
                   ),
                   SizedBox(height: height * 0.02),
-                  RichText(
-                    text: TextSpan(
-                      text: 'Don\'t have an account?  ',
-                      style: TextStyle(
-                          fontSize: width * 0.04,
-                          fontWeight: FontWeight.w400,
-                          color: ColorsX.subBlack),
-                      children: <TextSpan>[
-                        TextSpan(
-                            recognizer: TapGestureRecognizer()..onTap = () {},
-                            text: 'Sign In',
-                            style: TextStyle(
-                                fontSize: width * 0.04,
-                                fontWeight: FontWeight.w400,
-                                color: ColorsX.blue_gradient_dark)),
-                      ],
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SignInChoice()),
+                      );
+                    },
+                    child: RichText(
+                      text: TextSpan(
+                        text: 'Don\'t have an account?  ',
+                        style: TextStyle(
+                            fontSize: width * 0.04,
+                            fontWeight: FontWeight.w400,
+                            color: ColorsX.subBlack),
+                        children: <TextSpan>[
+                          TextSpan(
+                              text: 'Sign In',
+                              style: TextStyle(
+                                  fontSize: width * 0.04,
+                                  fontWeight: FontWeight.bold,
+                                  color: ColorsX.blue_gradient_dark)),
+                        ],
+                      ),
                     ),
                   )
                 ],

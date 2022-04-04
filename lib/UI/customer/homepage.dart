@@ -6,6 +6,7 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:saloonmobileapp/UI/customer/filterscreen.dart';
 import 'package:saloonmobileapp/UI/customer/searchhome.dart';
 import 'package:saloonmobileapp/UI/customer/widgets/packagescard.dart';
 import 'package:saloonmobileapp/UI/customer/widgets/salooncard.dart';
@@ -134,7 +135,13 @@ class HomePageScreen extends ConsumerWidget {
                                   color: Color(0xff707070),
                                 )),
                             IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => FilterScreen()),
+                                  );
+                                },
                                 icon: Icon(
                                   Icons.filter_alt_sharp,
                                   size: width * 0.07,
@@ -417,8 +424,14 @@ class HomePageScreen extends ConsumerWidget {
                           shrinkWrap: true,
                           itemCount: controller.packagesandoffer.length,
                           itemBuilder: (context, index) {
-                            return PackagesCard(
-                                index: index, controller: controller);
+                            return Padding(
+                              padding: EdgeInsets.only(
+                                  left: index == 0
+                                      ? width * 0.075
+                                      : width * 0.03),
+                              child: PackagesCard(
+                                  index: index, controller: controller),
+                            );
                           })),
                   SizedBox(height: height * 0.08),
                   Padding(

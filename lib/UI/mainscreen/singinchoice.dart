@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:saloonmobileapp/UI/admin/signinchoice.dart';
+import 'package:saloonmobileapp/UI/mainscreen/loginscreen.dart';
 import 'package:saloonmobileapp/UI/widgets/emailbutton.dart';
 import 'package:saloonmobileapp/extrahelper/colors.dart';
 
@@ -60,13 +62,24 @@ class SignInChoice extends StatelessWidget {
                     value: "Continue as Customer",
                     colorCode: 0xffffffff,
                     textColor: 0xff606060,
-                    ontap: () {}),
+                    ontap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Login()),
+                      );
+                    }),
                 SizedBox(height: height * 0.03),
                 email_button(
                     value: "Continue as Saloon",
                     colorCode: 0xff6EC8FD,
                     textColor: 0xffffffff,
-                    ontap: () {}),
+                    ontap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => SignInAdminChoice()),
+                      );
+                    }),
               ],
             ),
           ),

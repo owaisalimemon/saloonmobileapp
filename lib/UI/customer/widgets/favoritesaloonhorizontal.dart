@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:saloonmobileapp/UI/customer/saloonprofile.dart';
 import 'package:saloonmobileapp/controller/saloonscontroller.dart';
 import 'package:saloonmobileapp/extrahelper/colors.dart';
 
-class SaloonFavouriteCard extends StatelessWidget {
-  SaloonFavouriteCard({required this.index, required this.controller});
+class FavSaloonhorizontalCard extends StatelessWidget {
+  FavSaloonhorizontalCard({required this.index, required this.controller});
 
   SaloonController controller;
   int index;
@@ -13,23 +12,20 @@ class SaloonFavouriteCard extends StatelessWidget {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    return Padding(
-      padding: EdgeInsets.only(left: index == 0 ? width * 0.075 : width * 0.03),
-      child: GestureDetector(
-        onTap: () {
-          print("again clicked");
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => SaloonProfile()),
-          );
-        },
+    return GestureDetector(
+      onTap: () {
+        print("again clicked");
+      },
+      child: Padding(
+        padding: EdgeInsets.only(
+            left: width * 0.075, right: width * 0.075, top: height * 0.01),
         child: Card(
           elevation: 2,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
           child: Container(
             height: height * 0.3,
-            width: width * 0.75,
+            width: width * 0.85,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               color: ColorsX.blue_text_color,
@@ -39,7 +35,7 @@ class SaloonFavouriteCard extends StatelessWidget {
                 SizedBox(height: height * 0.001),
                 Container(
                     height: height * 0.2,
-                    width: width * 0.745,
+                    width: width * 0.845,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(15),
@@ -52,7 +48,7 @@ class SaloonFavouriteCard extends StatelessWidget {
                             fit: BoxFit.fill)),
                     child: Container(
                         height: height * 0.2,
-                        width: width * 0.745,
+                        width: width * 0.845,
                         decoration: BoxDecoration(
                           color: Colors.black.withOpacity(0.4),
                           borderRadius: BorderRadius.only(
@@ -86,13 +82,13 @@ class SaloonFavouriteCard extends StatelessWidget {
                                 onTap: () {
                                   print("favourite clicked");
 
-                                  controller.favoritesaloon[index].favourite =
-                                      !controller
-                                          .favoritesaloon[index].favourite;
+                                  controller.saloons[index].favourite =
+                                      !controller.saloons[index].favourite;
 
                                   controller.favoritesaloon.clear();
 
                                   controller.getfavouritesaloons();
+
                                   controller.notifyListeners();
                                 },
                                 child: Container(
@@ -147,7 +143,7 @@ class SaloonFavouriteCard extends StatelessWidget {
                         ))),
                 Container(
                   height: height * 0.099,
-                  width: width * 0.75,
+                  width: width * 0.85,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(15),

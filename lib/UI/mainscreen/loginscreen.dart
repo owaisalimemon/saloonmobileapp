@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:saloonmobileapp/UI/customer/bottomnavbar.dart';
 import 'package:saloonmobileapp/UI/mainscreen/forgetpasswordscreen.dart';
 import 'package:saloonmobileapp/UI/mainscreen/phonenumberscreen.dart';
 import 'package:saloonmobileapp/UI/mainscreen/signup_screen.dart';
@@ -73,7 +74,7 @@ class Login extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SignInChoice()),
+                                builder: (context) => CustomBottomNavBar()),
                           );
                         }),
                     GestureDetector(
@@ -92,25 +93,29 @@ class Login extends StatelessWidget {
                             fontWeight: FontWeight.w400),
                       ),
                     ),
-                    RichText(
-                      text: TextSpan(
-                        text: 'Don' "\'" 't have an account?  ',
-                        style: TextStyle(
-                            fontSize: width * 0.045,
-                            fontWeight: FontWeight.w400,
-                            color: ColorsX.subBlack),
-                        children: <TextSpan>[
-                          TextSpan(
-                              recognizer: TapGestureRecognizer()
-                                ..onTap = () {
-                                  print('dabab');
-                                },
-                              text: 'Sign Up',
-                              style: TextStyle(
-                                  fontSize: width * 0.045,
-                                  fontWeight: FontWeight.w700,
-                                  color: ColorsX.blue_gradient_dark)),
-                        ],
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => SignUp()),
+                        );
+                      },
+                      child: RichText(
+                        text: TextSpan(
+                          text: 'Don' "\'" 't have an account?  ',
+                          style: TextStyle(
+                              fontSize: width * 0.045,
+                              fontWeight: FontWeight.w400,
+                              color: ColorsX.subBlack),
+                          children: <TextSpan>[
+                            TextSpan(
+                                text: 'Sign Up',
+                                style: TextStyle(
+                                    fontSize: width * 0.045,
+                                    fontWeight: FontWeight.w700,
+                                    color: ColorsX.blue_gradient_dark)),
+                          ],
+                        ),
                       ),
                     )
                   ],

@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:saloonmobileapp/UI/mainscreen/loginscreen.dart';
+import 'package:saloonmobileapp/UI/mainscreen/signup_screen.dart';
+import 'package:saloonmobileapp/UI/mainscreen/singinchoice.dart';
 import 'package:saloonmobileapp/UI/widgets/emailbutton.dart';
 import 'package:saloonmobileapp/extrahelper/colors.dart';
 
@@ -65,7 +67,7 @@ class ConnectWithScreen extends StatelessWidget {
                     ontap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Login()),
+                        MaterialPageRoute(builder: (context) => SignUp()),
                       );
                     }),
                 SizedBox(height: height * 0.02),
@@ -95,7 +97,13 @@ class ConnectWithScreen extends StatelessWidget {
                 Align(
                     alignment: Alignment.center,
                     child: GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SignInChoice()),
+                        );
+                      },
                       child: Container(
                           child: RichText(
                         text: TextSpan(

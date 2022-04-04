@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:saloonmobileapp/UI/mainscreen/singinchoice.dart';
 import 'package:saloonmobileapp/UI/widgets/roundbutton.dart';
 import 'package:saloonmobileapp/controller/authconroller.dart';
 import 'package:saloonmobileapp/extrahelper/colors.dart';
@@ -97,6 +98,10 @@ class OTPScreen extends ConsumerWidget {
                     },
 
                     onCompleted: (v) async {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SignInChoice()),
+                      );
                       print(v);
                     },
                   ),
