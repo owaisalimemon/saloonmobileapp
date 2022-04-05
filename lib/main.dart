@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:saloonmobileapp/UI/admin/signinchoice.dart';
+import 'package:saloonmobileapp/UI/customer/apointmentpage.dart';
 import 'package:saloonmobileapp/UI/customer/bottomnavbar.dart';
 import 'package:saloonmobileapp/UI/customer/filterscreen.dart';
 import 'package:saloonmobileapp/UI/customer/homepage.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(fontFamily: 'Sofia'),
-      home: SplashScreen(),
+      home: AppointmentPage(),
     );
   }
 }
