@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:saloonmobileapp/UI/customer/apointmentpage.dart';
 import 'package:saloonmobileapp/UI/customer/favoritepage.dart';
 import 'package:saloonmobileapp/UI/customer/homepage.dart';
 
@@ -24,7 +25,7 @@ class BottomContoller extends ChangeNotifier {
     Container(color: Colors.red),
     Favouritepage(),
     HomePageScreen(),
-    Container(color: Colors.purple),
     Container(color: Colors.yellow),
+    AppointmentPage()
   ];
 }
