@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:saloonmobileapp/UI/customer/apointmentpage.dart';
 import 'package:saloonmobileapp/UI/customer/favoritepage.dart';
 import 'package:saloonmobileapp/UI/customer/homepage.dart';
+import 'package:saloonmobileapp/UI/customer/profilepage.dart';
 
 final getnav = ChangeNotifierProvider<BottomContoller>((ref) {
   return BottomContoller();
@@ -22,7 +23,7 @@ class BottomContoller extends ChangeNotifier {
   }
 
   List screens = [
-    Container(color: Colors.red),
+    ProfilePage(),
     Favouritepage(),
     HomePageScreen(),
     Container(color: Colors.yellow),

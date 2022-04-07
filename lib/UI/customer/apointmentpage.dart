@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:saloonmobileapp/UI/customer/appointmentdetail.dart';
 import 'package:saloonmobileapp/UI/customer/widgets/appintmentcard.dart';
 import 'package:saloonmobileapp/controller/appointmentcontroller.dart';
 import 'package:saloonmobileapp/controller/saloonscontroller.dart';
@@ -145,10 +146,20 @@ class AppointmentPage extends ConsumerWidget {
                           child: ListView.builder(
                             itemCount: controller.awaitingappointments.length,
                             itemBuilder: (context, index) {
-                              return AppointmentCard(
-                                  appintmentdetail:
-                                      controller.awaitingappointments,
-                                  index: index);
+                              return GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            AppointmentDetialScreen()),
+                                  );
+                                },
+                                child: AppointmentCard(
+                                    appintmentdetail:
+                                        controller.awaitingappointments,
+                                    index: index),
+                              );
                             },
                           ),
                         ),
