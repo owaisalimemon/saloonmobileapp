@@ -393,7 +393,7 @@ class SaloonProfile extends ConsumerWidget {
                                     'Info',
                                     style: TextStyle(
                                         color: Colors.black,
-                                        fontSize: width * 0.04),
+                                        fontSize: width * 0.035),
                                   ),
                                 ),
                                 new Tab(
@@ -402,7 +402,7 @@ class SaloonProfile extends ConsumerWidget {
                                     'Services',
                                     style: TextStyle(
                                         color: Colors.black,
-                                        fontSize: width * 0.04),
+                                        fontSize: width * 0.035),
                                   ),
                                 ),
                                 new Tab(
@@ -411,7 +411,7 @@ class SaloonProfile extends ConsumerWidget {
                                     'Reviews',
                                     style: TextStyle(
                                         color: Colors.black,
-                                        fontSize: width * 0.04),
+                                        fontSize: width * 0.035),
                                   ),
                                 ),
                                 new Tab(
@@ -420,7 +420,7 @@ class SaloonProfile extends ConsumerWidget {
                                     'Photos',
                                     style: TextStyle(
                                         color: Colors.black,
-                                        fontSize: width * 0.04),
+                                        fontSize: width * 0.035),
                                   ),
                                 ),
                               ],
@@ -458,6 +458,7 @@ class SaloonProfile extends ConsumerWidget {
                                           ColorsX.blue_text_color
                                         ],
                                         totalSwitches: 3,
+                                        fontSize: width * 0.03,
                                         labels: [
                                           "Services",
                                           "Package & Offers",
@@ -559,7 +560,7 @@ class SaloonProfile extends ConsumerWidget {
           ),
           Positioned(
             top: height * 0.3,
-            left: width * 0.1,
+            left: width * 0.08,
             child: Row(
               children: [
                 Container(
@@ -581,12 +582,12 @@ class SaloonProfile extends ConsumerWidget {
                     children: [
                       Text("Looks Unisex Saloon",
                           style: TextStyle(
-                              fontSize: width * 0.05,
+                              fontSize: width * 0.04,
                               fontWeight: FontWeight.bold,
                               color: Colors.black)),
                       Text("288 Empola Street, NewYork",
                           style: TextStyle(
-                              fontSize: width * 0.04,
+                              fontSize: width * 0.03,
                               fontWeight: FontWeight.normal,
                               color: Colors.black)),
                       Row(

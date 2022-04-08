@@ -22,7 +22,7 @@ class ProfilePage extends StatelessWidget {
             Text(
               'My Profile',
               style: TextStyle(
-                  fontSize: width * 0.06,
+                  fontSize: width * 0.055,
                   color: Colors.black,
                   fontWeight: FontWeight.bold),
             ),
@@ -30,7 +30,7 @@ class ProfilePage extends StatelessWidget {
             Text(
               'Edited 15 min ago',
               style: TextStyle(
-                  fontSize: width * 0.04,
+                  fontSize: width * 0.035,
                   color: Color(0xff707070),
                   fontWeight: FontWeight.bold),
             ),
@@ -38,7 +38,7 @@ class ProfilePage extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(vertical: height * 0.05),
+        padding: EdgeInsets.symmetric(vertical: height * 0.04),
         child: Container(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -47,7 +47,7 @@ class ProfilePage extends StatelessWidget {
               Center(
                 child: Container(
                   height: height * 0.175,
-                  width: width * 0.35,
+                  width: width * 0.4,
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(
@@ -60,21 +60,21 @@ class ProfilePage extends StatelessWidget {
               Text(
                 "John Deo",
                 style: TextStyle(
-                    fontSize: width * 0.065,
+                    fontSize: width * 0.06,
                     fontWeight: FontWeight.bold,
                     color: Colors.black),
               ),
               Text(
                 "Account created on 01-02-2020",
                 style: TextStyle(
-                    fontSize: width * 0.04,
+                    fontSize: width * 0.035,
                     fontWeight: FontWeight.normal,
                     color: Color(0xff707070)),
               ),
               GestureDetector(
                 onTap: () {},
                 child: Container(
-                  height: height * 0.05,
+                  height: height * 0.065,
                   width: width * 0.5,
                   padding: EdgeInsets.symmetric(vertical: 15),
                   decoration: BoxDecoration(
@@ -84,7 +84,7 @@ class ProfilePage extends StatelessWidget {
                   child: Center(
                     child: Text("Show receipts",
                         style: TextStyle(
-                          fontSize: width * 0.04,
+                          fontSize: width * 0.035,
                           color: ColorsX.white,
                           fontWeight: FontWeight.w900,
                         )),
@@ -96,7 +96,7 @@ class ProfilePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   RatingBar.builder(
-                    itemSize: width * 0.09,
+                    itemSize: width * 0.08,
                     ignoreGestures: true,
                     initialRating: 4,
                     minRating: 1,
@@ -114,7 +114,7 @@ class ProfilePage extends StatelessWidget {
                   SizedBox(width: width * 0.05),
                   Text("4.0",
                       style: TextStyle(
-                          fontSize: width * 0.06,
+                          fontSize: width * 0.055,
                           fontWeight: FontWeight.normal,
                           color: Color(0xff707070))),
                 ],
@@ -136,7 +136,7 @@ class ProfilePage extends StatelessWidget {
                         Text(
                           "johndoe@gmail.com",
                           style: TextStyle(
-                              fontSize: width * 0.06,
+                              fontSize: width * 0.055,
                               fontWeight: FontWeight.normal,
                               color: Colors.black),
                         ),
@@ -156,7 +156,7 @@ class ProfilePage extends StatelessWidget {
                         Text(
                           "+456 256 966 896",
                           style: TextStyle(
-                              fontSize: width * 0.06,
+                              fontSize: width * 0.055,
                               fontWeight: FontWeight.normal,
                               color: Colors.black),
                         ),
@@ -176,7 +176,7 @@ class ProfilePage extends StatelessWidget {
                         Text(
                           "30-01-1992",
                           style: TextStyle(
-                              fontSize: width * 0.06,
+                              fontSize: width * 0.055,
                               fontWeight: FontWeight.normal,
                               color: Colors.black),
                         ),
@@ -200,7 +200,7 @@ class ProfilePage extends StatelessWidget {
                           Text(
                             "Log Out",
                             style: TextStyle(
-                                fontSize: width * 0.06,
+                                fontSize: width * 0.055,
                                 fontWeight: FontWeight.normal,
                                 color: Color(0xff70B4FF)),
                           ),

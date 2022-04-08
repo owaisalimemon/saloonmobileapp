@@ -22,7 +22,7 @@ class InfoTabProfileScreen extends StatelessWidget {
             padding: EdgeInsets.only(left: width * 0.1),
             child: Text("About",
                 style: TextStyle(
-                    fontSize: width * 0.05,
+                    fontSize: width * 0.045,
                     fontWeight: FontWeight.normal,
                     color: Colors.black)),
           ),
@@ -34,7 +34,7 @@ class InfoTabProfileScreen extends StatelessWidget {
             child: Text(
                 "Step into our salon and experience the most contemporary hair cutting, coloring. The perfect introduction for someone new to professional skin care",
                 style: TextStyle(
-                    fontSize: width * 0.045,
+                    fontSize: width * 0.035,
                     fontWeight: FontWeight.normal,
                     color: Color(0xff707070))),
           ),
@@ -43,7 +43,7 @@ class InfoTabProfileScreen extends StatelessWidget {
             padding: EdgeInsets.only(left: width * 0.1),
             child: Text("Opening Hours",
                 style: TextStyle(
-                    fontSize: width * 0.05,
+                    fontSize: width * 0.045,
                     fontWeight: FontWeight.normal,
                     color: Colors.black)),
           ),
@@ -67,14 +67,14 @@ class InfoTabProfileScreen extends StatelessWidget {
                         SizedBox(width: width * 0.04),
                         Text("Monday" + "-" + "Friday",
                             style: TextStyle(
-                                fontSize: width * 0.045,
+                                fontSize: width * 0.035,
                                 fontWeight: FontWeight.normal,
                                 color: Color(0xff707070))),
                       ],
                     ),
                     Text("8:30 AM" + "-" + "9:30 PM",
                         style: TextStyle(
-                            fontSize: width * 0.045,
+                            fontSize: width * 0.035,
                             fontWeight: FontWeight.normal,
                             color: Color(0xff707070)))
                   ],
@@ -98,14 +98,14 @@ class InfoTabProfileScreen extends StatelessWidget {
                         SizedBox(width: width * 0.04),
                         Text("Saturday" + "-" + "Sunday",
                             style: TextStyle(
-                                fontSize: width * 0.045,
+                                fontSize: width * 0.035,
                                 fontWeight: FontWeight.normal,
                                 color: Color(0xff707070))),
                       ],
                     ),
                     Text("9:00 AM" + "-" + "5:30 PM",
                         style: TextStyle(
-                            fontSize: width * 0.045,
+                            fontSize: width * 0.035,
                             fontWeight: FontWeight.normal,
                             color: Color(0xff707070)))
                   ],
@@ -127,13 +127,13 @@ class InfoTabProfileScreen extends StatelessWidget {
                   children: [
                     Text("Address",
                         style: TextStyle(
-                            fontSize: width * 0.05,
+                            fontSize: width * 0.045,
                             fontWeight: FontWeight.normal,
                             color: Colors.black)),
                     SizedBox(height: height * 0.02),
                     Text("288 Empola Street, NewYork",
                         style: TextStyle(
-                            fontSize: width * 0.045,
+                            fontSize: width * 0.04,
                             fontWeight: FontWeight.normal,
                             color: Color(0xff707070))),
                     GestureDetector(
@@ -145,12 +145,12 @@ class InfoTabProfileScreen extends StatelessWidget {
                         children: [
                           Icon(
                             Icons.location_on_outlined,
-                            size: width * 0.07,
+                            size: width * 0.065,
                             color: Color(0xff70B4FF),
                           ),
                           Text("Get Directions-" + "12km",
                               style: TextStyle(
-                                  fontSize: width * 0.045,
+                                  fontSize: width * 0.035,
                                   fontWeight: FontWeight.normal,
                                   color: Color(0xff70B4FF))),
                         ],
@@ -159,8 +159,8 @@ class InfoTabProfileScreen extends StatelessWidget {
                   ],
                 ),
                 Container(
-                  height: height * 0.13,
-                  width: width * 0.25,
+                  height: height * 0.11,
+                  width: width * 0.22,
                   decoration: BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage("assets/images/mapimage.png"),
@@ -170,7 +170,7 @@ class InfoTabProfileScreen extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: height * 0.04),
+          SizedBox(height: height * 0.035),
           Padding(
             padding: EdgeInsets.only(
               left: width * 0.1,
@@ -183,7 +183,7 @@ class InfoTabProfileScreen extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: Text("Photos",
                       style: TextStyle(
-                          fontSize: width * 0.05,
+                          fontSize: width * 0.045,
                           fontWeight: FontWeight.normal,
                           color: Colors.black)),
                 ),
@@ -194,7 +194,7 @@ class InfoTabProfileScreen extends StatelessWidget {
                     style: TextStyle(
                         color: ColorsX.blue_text_color,
                         fontWeight: FontWeight.w400,
-                        fontSize: width * 0.05),
+                        fontSize: width * 0.045),
                   ),
                 ),
               ],
@@ -226,12 +226,12 @@ class InfoTabProfileScreen extends StatelessWidget {
                   );
                 }),
           ),
-          SizedBox(height: height * 0.04),
+          SizedBox(height: height * 0.035),
           Padding(
             padding: EdgeInsets.only(left: width * 0.1),
             child: Text("Reviews",
                 style: TextStyle(
-                    fontSize: width * 0.05,
+                    fontSize: width * 0.045,
                     fontWeight: FontWeight.normal,
                     color: Colors.black)),
           ),
@@ -297,7 +297,7 @@ class InfoTabProfileScreen extends StatelessWidget {
                                         children: [
                                           Text("Jim Fernandez",
                                               style: TextStyle(
-                                                  fontSize: width * 0.055,
+                                                  fontSize: width * 0.045,
                                                   fontWeight: FontWeight.bold,
                                                   color: Color(0xff707070))),
                                           SizedBox(height: height * 0.02),
@@ -333,13 +333,13 @@ class InfoTabProfileScreen extends StatelessWidget {
                                       children: [
                                         Text("15th  May 2020",
                                             style: TextStyle(
-                                                fontSize: width * 0.04,
+                                                fontSize: width * 0.03,
                                                 fontWeight: FontWeight.normal,
                                                 color: Color(0xff70B4FF))),
                                         SizedBox(height: height * 0.025),
                                         Text("02:26 PM",
                                             style: TextStyle(
-                                                fontSize: width * 0.04,
+                                                fontSize: width * 0.03,
                                                 fontWeight: FontWeight.normal,
                                                 color: Color(0xff70B4FF))),
                                       ],
@@ -352,7 +352,7 @@ class InfoTabProfileScreen extends StatelessWidget {
                                         child: Text(
                                             "Fast shipping & excellent customer service. I had an issue with my order them they replied quickly",
                                             style: TextStyle(
-                                                fontSize: width * 0.04,
+                                                fontSize: width * 0.03,
                                                 fontWeight: FontWeight.normal,
                                                 color: Color(0xff707070))),
                                       ),

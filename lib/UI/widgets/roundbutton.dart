@@ -22,18 +22,13 @@ class RoundCustomButton extends StatelessWidget {
           color: ColorsX.blue_gradient_dark,
           borderRadius: BorderRadius.all(Radius.circular(10)),
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Container(
-              child: Text(text,
-                  style: TextStyle(
-                    fontSize: width * 0.045,
-                    color: ColorsX.white,
-                    fontWeight: FontWeight.w700,
-                  )),
-            ),
-          ],
+        child: Center(
+          child: Text(text,
+              style: TextStyle(
+                fontSize: width * 0.04,
+                color: ColorsX.white,
+                fontWeight: FontWeight.w700,
+              )),
         ),
       ),
     );

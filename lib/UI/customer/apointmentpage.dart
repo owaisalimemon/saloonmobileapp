@@ -46,7 +46,7 @@ class AppointmentPage extends ConsumerWidget {
         title: Text(
           'My Appointments',
           style: TextStyle(
-              fontSize: width * 0.06,
+              fontSize: width * 0.05,
               color: Colors.black,
               fontWeight: FontWeight.bold),
         ),
@@ -83,7 +83,7 @@ class AppointmentPage extends ConsumerWidget {
                               'All',
                               style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: width * 0.035,
+                                  fontSize: width * 0.025,
                                   fontWeight: FontWeight.bold),
                             ),
                           ),
@@ -93,7 +93,7 @@ class AppointmentPage extends ConsumerWidget {
                               'Upcoming',
                               style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: width * 0.035,
+                                  fontSize: width * 0.025,
                                   fontWeight: FontWeight.bold),
                             ),
                           ),
@@ -103,7 +103,7 @@ class AppointmentPage extends ConsumerWidget {
                               'Cancelled',
                               style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: width * 0.035,
+                                  fontSize: width * 0.025,
                                   fontWeight: FontWeight.bold),
                             ),
                           ),
@@ -113,7 +113,7 @@ class AppointmentPage extends ConsumerWidget {
                               'History',
                               style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: width * 0.035,
+                                  fontSize: width * 0.025,
                                   fontWeight: FontWeight.bold),
                             ),
                           ),
@@ -122,7 +122,7 @@ class AppointmentPage extends ConsumerWidget {
                     ),
                     Container(
                       color: Colors.transparent,
-                      height: height * 0.72,
+                      height: height * 0.665,
                       child: TabBarView(children: [
                         Padding(
                           padding: EdgeInsets.only(

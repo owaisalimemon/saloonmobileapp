@@ -159,7 +159,7 @@ class SaloonMapcard extends StatelessWidget {
                           children: [
                             Text(controller.saloons[index].name,
                                 style: TextStyle(
-                                    fontSize: width * 0.05,
+                                    fontSize: width * 0.045,
                                     color: Colors.black)),
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.end,
@@ -172,7 +172,7 @@ class SaloonMapcard extends StatelessWidget {
                                 Text(
                                   controller.saloons[index].rating.toString(),
                                   style: TextStyle(
-                                      fontSize: width * 0.04,
+                                      fontSize: width * 0.035,
                                       color: Colors.black),
                                 )
                               ],
@@ -185,7 +185,7 @@ class SaloonMapcard extends StatelessWidget {
                             Text(
                               controller.saloons[index].address,
                               style: TextStyle(
-                                  fontSize: width * 0.04,
+                                  fontSize: width * 0.035,
                                   color: Color(0xff707070)),
                             ),
                           ],

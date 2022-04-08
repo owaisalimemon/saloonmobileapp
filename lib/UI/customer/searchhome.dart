@@ -272,7 +272,7 @@ class Searchhome extends ConsumerWidget {
                           ? Positioned(
                               bottom: width * 0.1,
                               child: Container(
-                                height: height * 0.282,
+                                height: height * 0.281,
                                 width: width,
                                 child: ListView.builder(
                                     scrollDirection: Axis.horizontal,

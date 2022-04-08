@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:saloonmobileapp/UI/customer/widgets/filtechipcustom.dart';
@@ -30,7 +31,7 @@ class FilterScreen extends ConsumerWidget {
                   style: TextStyle(
                       fontWeight: FontWeight.normal,
                       color: Color(0xff707070),
-                      fontSize: width * 0.045),
+                      fontSize: width * 0.04),
                 ),
               ),
             ),
@@ -41,7 +42,7 @@ class FilterScreen extends ConsumerWidget {
             style: TextStyle(
                 fontWeight: FontWeight.w900,
                 color: ColorsX.blue_text_color,
-                fontSize: width * 0.055),
+                fontSize: width * 0.05),
           ),
           actions: [
             Padding(
@@ -52,7 +53,7 @@ class FilterScreen extends ConsumerWidget {
                   style: TextStyle(
                       fontWeight: FontWeight.normal,
                       color: Color(0xff707070),
-                      fontSize: width * 0.045),
+                      fontSize: width * 0.04),
                 ),
               ),
             ),
@@ -189,54 +190,33 @@ class FilterScreen extends ConsumerWidget {
                 padding:
                     EdgeInsets.only(left: width * 0.075, right: width * 0.075),
                 child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    StarRating(
-                        star: controller.rating > 0
-                            ? Icons.star
-                            : Icons.star_border,
-                        onPressed: () {
-                          controller.rating = 1;
-                          controller.notifyListeners();
-                        }),
-                    StarRating(
-                        star: controller.rating > 1
-                            ? Icons.star
-                            : Icons.star_border,
-                        onPressed: () {
-                          controller.rating = 2;
-                          controller.notifyListeners();
-                        }),
-                    StarRating(
-                        star: controller.rating > 2
-                            ? Icons.star
-                            : Icons.star_border,
-                        onPressed: () {
-                          controller.rating = 3;
-                          controller.notifyListeners();
-                        }),
-                    StarRating(
-                        star: controller.rating > 3
-                            ? Icons.star
-                            : Icons.star_border,
-                        onPressed: () {
-                          controller.rating = 4;
-                          controller.notifyListeners();
-                        }),
-                    StarRating(
-                        star: controller.rating > 4
-                            ? Icons.star
-                            : Icons.star_border,
-                        onPressed: () {
-                          controller.rating = 5;
-                          controller.notifyListeners();
-                        }),
-                    SizedBox(width: width * 0.03),
-                    Text(
-                      controller.rating.toString() + ".0",
-                      style: TextStyle(
-                          fontSize: width * 0.1, color: Color(0xff707070)),
-                    )
+                    RatingBar.builder(
+                      itemSize: width * 0.08,
+                      initialRating: controller.rating,
+                      minRating: 1,
+                      direction: Axis.horizontal,
+                      allowHalfRating: true,
+                      itemCount: 5,
+                      itemPadding:
+                          EdgeInsets.symmetric(horizontal: width * 0.0005),
+                      itemBuilder: (context, _) => Icon(
+                        Icons.star,
+                        color: Color(0xffF9D63E),
+                      ),
+                      onRatingUpdate: (rating) {
+                        controller.rating = rating;
+                        controller.notifyListeners();
+                      },
+                    ),
+                    SizedBox(width: width * 0.05),
+                    Text(controller.rating.toString(),
+                        style: TextStyle(
+                            fontSize: width * 0.055,
+                            fontWeight: FontWeight.normal,
+                            color: Color(0xff707070))),
                   ],
                 ),
               ),
@@ -247,7 +227,10 @@ class FilterScreen extends ConsumerWidget {
                     child: RadioListTile(
                       value: 0,
                       groupValue: controller.groupValue,
-                      title: Text("Male"),
+                      title: Text(
+                        "Male",
+                        style: TextStyle(fontSize: width * 0.025),
+                      ),
                       onChanged: (newValue) {
                         controller.groupValue = int.parse(newValue.toString());
                         controller.notifyListeners();
@@ -261,7 +244,8 @@ class FilterScreen extends ConsumerWidget {
                     child: RadioListTile(
                       value: 1,
                       groupValue: controller.groupValue,
-                      title: Text("Female"),
+                      title: Text("Female",
+                          style: TextStyle(fontSize: width * 0.025)),
                       onChanged: (newValue) {
                         controller.groupValue = int.parse(newValue.toString());
                         controller.notifyListeners();
@@ -275,7 +259,8 @@ class FilterScreen extends ConsumerWidget {
                     child: RadioListTile(
                       value: 2,
                       groupValue: controller.groupValue,
-                      title: Text("Other"),
+                      title: Text("Other",
+                          style: TextStyle(fontSize: width * 0.025)),
                       onChanged: (newValue) {
                         controller.groupValue = int.parse(newValue.toString());
                         controller.notifyListeners();

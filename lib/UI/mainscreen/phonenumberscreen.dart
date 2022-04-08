@@ -76,7 +76,7 @@ class PhoneNumberScreen extends ConsumerWidget {
 
                           // ],
                           textStyle: TextStyle(
-                              fontSize: width * 0.045,
+                              fontSize: width * 0.035,
                               color: Colors.grey.shade600,
                               fontWeight: FontWeight.w400),
                           onChanged: (value) {

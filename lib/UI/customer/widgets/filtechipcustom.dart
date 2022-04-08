@@ -20,7 +20,7 @@ class FilterCustomChip extends StatelessWidget {
             horizontal: width * 0.008, vertical: height * 0.01),
         child: Text(
           text,
-          style: TextStyle(fontSize: width * 0.04),
+          style: TextStyle(fontSize: width * 0.035),
         ),
       ),
       selected: selected,

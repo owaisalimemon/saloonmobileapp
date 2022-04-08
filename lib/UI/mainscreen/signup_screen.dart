@@ -212,7 +212,7 @@ class SignUp extends ConsumerWidget {
                     },
                     child: RichText(
                       text: TextSpan(
-                        text: 'Don\'t have an account?  ',
+                        text: 'Have an account?  ',
                         style: TextStyle(
                             fontSize: width * 0.04,
                             fontWeight: FontWeight.w400,
@@ -227,7 +227,8 @@ class SignUp extends ConsumerWidget {
                         ],
                       ),
                     ),
-                  )
+                  ),
+                  SizedBox(height: height * 0.05)
                 ],
               )),
         ),

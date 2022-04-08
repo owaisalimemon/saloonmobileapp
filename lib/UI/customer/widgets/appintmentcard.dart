@@ -40,7 +40,6 @@ class AppointmentCard extends StatelessWidget {
                                     AssetImage(appintmentdetail[index].image),
                                 fit: BoxFit.fill))),
                     Container(
-                      height: height * 0.1,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -54,7 +53,7 @@ class AppointmentCard extends StatelessWidget {
                                 Text(
                                   appintmentdetail[index].saloonname,
                                   style: TextStyle(
-                                      fontSize: width * 0.045,
+                                      fontSize: width * 0.04,
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold),
                                 ),
@@ -65,13 +64,13 @@ class AppointmentCard extends StatelessWidget {
                                             .rating
                                             .toString(),
                                         style: TextStyle(
-                                            fontSize: width * 0.045,
+                                            fontSize: width * 0.035,
                                             color: Colors.black,
                                             fontWeight: FontWeight.normal)),
                                     Icon(
                                       Icons.star_border,
                                       color: Color(0xffF9D63E),
-                                      size: width * 0.06,
+                                      size: width * 0.05,
                                     ),
                                   ],
                                 ),
@@ -81,7 +80,7 @@ class AppointmentCard extends StatelessWidget {
                           Text(
                             appintmentdetail[index].address,
                             style: TextStyle(
-                                fontSize: width * 0.035,
+                                fontSize: width * 0.03,
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal),
                           ),
@@ -94,7 +93,7 @@ class AppointmentCard extends StatelessWidget {
                                   Text(
                                     appintmentdetail[index].time,
                                     style: TextStyle(
-                                        fontSize: width * 0.035,
+                                        fontSize: width * 0.03,
                                         color: Colors.black,
                                         fontWeight: FontWeight.normal),
                                   ),
@@ -109,7 +108,7 @@ class AppointmentCard extends StatelessWidget {
                                       child: Text(
                                         "PM",
                                         style: TextStyle(
-                                            fontSize: width * 0.035,
+                                            fontSize: width * 0.03,
                                             color: Colors.black,
                                             fontWeight: FontWeight.normal),
                                       ),
@@ -122,7 +121,7 @@ class AppointmentCard extends StatelessWidget {
                                 appintmentdetail[index].date,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                    fontSize: width * 0.04,
+                                    fontSize: width * 0.03,
                                     color: Colors.black,
                                     fontWeight: FontWeight.normal),
                               ),
@@ -171,7 +170,7 @@ class AppointmentCard extends StatelessWidget {
                         padding: EdgeInsets.symmetric(horizontal: width * 0.03),
                         child: Text(appintmentdetail[index].awaibookconf,
                             style: TextStyle(
-                                fontSize: width * 0.04,
+                                fontSize: width * 0.035,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white)),
                       )),

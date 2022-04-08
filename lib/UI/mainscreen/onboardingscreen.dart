@@ -57,148 +57,153 @@ class OnBoardingScreen extends ConsumerWidget {
     _width = MediaQuery.of(context).size.width;
     _height = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: AnnotatedRegion<SystemUiOverlayStyle>(
-        value: SystemUiOverlayStyle.light,
-        child: Container(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                height: _height * 0.5,
-                child: PageView(
-                  physics: ClampingScrollPhysics(),
-                  controller: _pageController,
-                  onPageChanged: (int page) {
-                    controller.OnboardingScreen(page);
-                    controller.currentpage = page;
+      body: SingleChildScrollView(
+        child: AnnotatedRegion<SystemUiOverlayStyle>(
+          value: SystemUiOverlayStyle.light,
+          child: Container(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  height: _height * 0.5,
+                  child: PageView(
+                    physics: ClampingScrollPhysics(),
+                    controller: _pageController,
+                    onPageChanged: (int page) {
+                      controller.OnboardingScreen(page);
+                      controller.currentpage = page;
 
-                    para = paragraph[controller.currentpage];
-                    head = heading[controller.currentpage];
-                    if (page == 2) {
-                      btntxt = 'Continue';
-                      skiptxt = "DONE";
-                    } else {
-                      btntxt = 'Next';
-                      skiptxt = "SKIP";
-                    }
-                  },
-                  children: <Widget>[
-                    Center(
-                      child: Image(
-                        image: AssetImage(
-                          'assets/images/first_slider.png',
+                      para = paragraph[controller.currentpage];
+                      head = heading[controller.currentpage];
+                      if (page == 2) {
+                        btntxt = 'Continue';
+                        skiptxt = "DONE";
+                      } else {
+                        btntxt = 'Next';
+                        skiptxt = "SKIP";
+                      }
+                    },
+                    children: <Widget>[
+                      Center(
+                        child: Image(
+                          image: AssetImage(
+                            'assets/images/first_slider.png',
+                          ),
+                          height: _height * 0.5,
+                          width: _width,
+                          fit: BoxFit.fill,
                         ),
-                        height: _height * 0.5,
-                        width: _width,
-                        fit: BoxFit.fill,
                       ),
-                    ),
-                    Center(
-                      child: Image(
-                        image: AssetImage(
-                          'assets/images/second_slider.png',
+                      Center(
+                        child: Image(
+                          image: AssetImage(
+                            'assets/images/second_slider.png',
+                          ),
+                          height: _height * 0.55,
+                          width: _width,
+                          fit: BoxFit.fill,
                         ),
-                        height: _height * 0.55,
-                        width: _width,
-                        fit: BoxFit.fill,
                       ),
-                    ),
-                    Center(
-                      child: Image(
-                        image: AssetImage(
-                          'assets/images/third_slider.png',
+                      Center(
+                        child: Image(
+                          image: AssetImage(
+                            'assets/images/third_slider.png',
+                          ),
+                          height: _height * 0.55,
+                          width: _width,
+                          fit: BoxFit.fill,
                         ),
-                        height: _height * 0.55,
-                        width: _width,
-                        fit: BoxFit.fill,
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              SizedBox(height: _height * 0.035),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: _buildPageIndicator(controller.currentpage),
-              ),
-              SizedBox(height: _height * 0.045),
-              Container(
-                height: _height * 0.15,
-                child: Column(
-                  children: [
-                    Center(
-                      child: Text(
-                        head,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: _width * 0.07,
-                            fontWeight: FontWeight.w900),
-                      ),
-                    ),
-                    SizedBox(height: _height * 0.025),
-                    Center(
-                      child: Container(
-                        width: _width * 0.9,
+                SizedBox(height: _height * 0.035),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: _buildPageIndicator(controller.currentpage),
+                ),
+                SizedBox(height: _height * 0.045),
+                Container(
+                  height: _height * 0.15,
+                  child: Column(
+                    children: [
+                      Center(
                         child: Text(
-                          para,
+                          head,
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                              color: Colors.black.withOpacity(0.5),
-                              fontSize: _width * 0.05,
-                              fontWeight: FontWeight.normal),
+                              color: Colors.black,
+                              fontSize: _width * 0.06,
+                              fontWeight: FontWeight.w900),
                         ),
                       ),
-                    )
-                  ],
+                      SizedBox(height: _height * 0.025),
+                      Center(
+                        child: Container(
+                          width: _width * 0.9,
+                          child: Text(
+                            para,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.black.withOpacity(0.5),
+                                fontSize: _width * 0.045,
+                                fontWeight: FontWeight.normal),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
-              ),
-              SizedBox(height: _height * 0.03),
-              Center(
-                child: RoundCustomButton(
-                  text: btntxt,
-                  ontap: () {
-                    if (controller.currentpage != 2) {
-                      _pageController.nextPage(
-                        duration: Duration(milliseconds: 500),
-                        curve: Curves.ease,
-                      );
-                    } else {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ConnectWithScreen()),
-                      );
-                    }
-                  },
-                ),
-              ),
-              SizedBox(height: _height * 0.13),
-              Padding(
-                padding: EdgeInsets.only(right: _width * 0.08),
-                child: Align(
-                  alignment: Alignment.bottomRight,
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ConnectWithScreen()),
-                      );
+                SizedBox(height: _height * 0.03),
+                Center(
+                  child: RoundCustomButton(
+                    text: btntxt,
+                    ontap: () {
+                      if (controller.currentpage != 2) {
+                        _pageController.nextPage(
+                          duration: Duration(milliseconds: 500),
+                          curve: Curves.ease,
+                        );
+                      } else {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ConnectWithScreen()),
+                        );
+                      }
                     },
-                    child: Container(
-                      child: Text(
-                        skiptxt,
-                        style: TextStyle(
-                            fontSize: _width * 0.06,
-                            fontWeight: FontWeight.w900,
-                            color: Colors.black.withOpacity(0.6)),
+                  ),
+                ),
+                SizedBox(height: _height * 0.1),
+                Padding(
+                  padding: EdgeInsets.only(right: _width * 0.08),
+                  child: Align(
+                    alignment: Alignment.bottomRight,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ConnectWithScreen()),
+                        );
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.only(bottom: _height * 0.05),
+                        child: Container(
+                          child: Text(
+                            skiptxt,
+                            style: TextStyle(
+                                fontSize: _width * 0.06,
+                                fontWeight: FontWeight.w900,
+                                color: Colors.black.withOpacity(0.6)),
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                ),
-              )
-            ],
+                )
+              ],
+            ),
           ),
         ),
       ),

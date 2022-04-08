@@ -43,7 +43,7 @@ class PackagesCard extends StatelessWidget {
                                 .toString() +
                             "% \nOff",
                         style: TextStyle(
-                            fontSize: width * 0.1,
+                            fontSize: width * 0.075,
                             color: Color(0xffFF770E),
                             fontWeight: FontWeight.bold),
                       )),
@@ -52,21 +52,23 @@ class PackagesCard extends StatelessWidget {
                     right: width * 0.03,
                     child: Container(
                       height: height * 0.04,
-                      width: width * 0.18,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
                           color: controller.packagesandoffer[index].active
                               ? Color(0xff56D91F)
                               : Colors.red),
-                      child: Center(
-                          child: Text(
-                              controller.packagesandoffer[index].active
-                                  ? "Active"
-                                  : "Deactive",
-                              style: TextStyle(
-                                  fontSize: width * 0.04,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white))),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 5),
+                        child: Center(
+                            child: Text(
+                                controller.packagesandoffer[index].active
+                                    ? "Active"
+                                    : "Deactive",
+                                style: TextStyle(
+                                    fontSize: width * 0.04,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white))),
+                      ),
                     ),
                   ),
                   Positioned(
@@ -100,7 +102,7 @@ class PackagesCard extends StatelessWidget {
                             fontWeight: FontWeight.normal),
                       )),
                   Positioned(
-                      top: height * 0.04,
+                      top: height * 0.045,
                       left: width * 0.03,
                       child: Text(
                         controller.packagesandoffer[index].dealno,
@@ -130,7 +132,7 @@ class PackagesCard extends StatelessWidget {
                             fontWeight: FontWeight.bold),
                       )),
                   Positioned(
-                      bottom: height * 0.06,
+                      bottom: height * 0.055,
                       left: width * 0.03,
                       child: Text(
                         "Price",
@@ -140,7 +142,7 @@ class PackagesCard extends StatelessWidget {
                             fontWeight: FontWeight.normal),
                       )),
                   Positioned(
-                      bottom: height * 0.03,
+                      bottom: height * 0.025,
                       left: width * 0.03,
                       child: RichText(
                         text: TextSpan(children: [

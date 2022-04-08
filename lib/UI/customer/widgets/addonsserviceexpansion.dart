@@ -73,12 +73,12 @@ class CustomExpansionTileforaddons extends StatelessWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Container(
-                                        width: width * 0.5,
+                                        width: width * 0.4,
                                         child: Text(
                                             controller.addons[index]
                                                 .servicedetail[indexx].title,
                                             style: TextStyle(
-                                                fontSize: width * 0.04,
+                                                fontSize: width * 0.035,
                                                 color: Colors.black)),
                                       ),
                                       Text(
@@ -87,12 +87,18 @@ class CustomExpansionTileforaddons extends StatelessWidget {
                                                   .servicedetail[indexx].price
                                                   .toString(),
                                           style: TextStyle(
+                                              fontSize: width * 0.035,
                                               color: Color(0xff7DBAFF),
                                               fontWeight: FontWeight.bold))
                                     ],
                                   ),
-                                  subtitle: Text(controller.addons[index]
-                                      .servicedetail[indexx].subtitle),
+                                  subtitle: Text(
+                                    controller.addons[index]
+                                        .servicedetail[indexx].subtitle,
+                                    style: TextStyle(
+                                        fontSize: width * 0.035,
+                                        color: Colors.black),
+                                  ),
                                   onChanged: (newValue) {
                                     controller.addons[index].groupvalue =
                                         int.parse(newValue.toString());

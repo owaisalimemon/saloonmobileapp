@@ -10,9 +10,11 @@ class CustomExpansionTileforsevices extends StatelessWidget {
 
   CustomExpansionTileforsevices(
       {required this.controller, required this.index});
+  late Flushbar flushbar;
 
   @override
   Widget build(BuildContext context) {
+    flushbar = Flushbar();
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Padding(
@@ -73,29 +75,49 @@ class CustomExpansionTileforsevices extends StatelessWidget {
                                   title: Text(
                                     controller.services[index]
                                         .servicedetail[indexx].title,
-                                    style: TextStyle(fontSize: width * 0.04),
+                                    style: TextStyle(fontSize: width * 0.035),
                                   ),
                                   subtitle: Text(
-                                    controller.services[index]
-                                        .servicedetail[indexx].subtitle,
-                                  ),
+                                      controller.services[index]
+                                          .servicedetail[indexx].subtitle,
+                                      style:
+                                          TextStyle(fontSize: width * 0.035)),
                                   onChanged: (newValue) {
                                     controller.services[index].groupvalue =
                                         int.parse(newValue.toString());
                                     controller.checkselectedservices();
                                     controller.notifyListeners();
-                                    Flushbar(
+
+                                    flushbar.dismiss();
+
+                                    flushbar = Flushbar(
                                       title: "Looks Unisex Saloon",
                                       titleColor: Colors.black,
                                       messageColor: Color(0xff70B4FF),
                                       mainButton: Padding(
                                         padding: EdgeInsets.only(
                                             right: width * 0.02),
-                                        child: Container(
-                                          width: width * 0.2,
-                                          height: height * 0.05,
-                                          child: RoundCustomButton(
-                                              text: "Book Now", ontap: () {}),
+                                        child: GestureDetector(
+                                          onTap: () {},
+                                          child: Container(
+                                            width: width * 0.3,
+                                            height: height * 0.065,
+                                            padding: EdgeInsets.symmetric(
+                                                vertical: 15),
+                                            decoration: BoxDecoration(
+                                              color: ColorsX.blue_gradient_dark,
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(10)),
+                                            ),
+                                            child: Center(
+                                              child: Text('Book Now',
+                                                  style: TextStyle(
+                                                    fontSize: width * 0.03,
+                                                    color: ColorsX.white,
+                                                    fontWeight: FontWeight.w700,
+                                                  )),
+                                            ),
+                                          ),
                                         ),
                                       ),
                                       message: controller

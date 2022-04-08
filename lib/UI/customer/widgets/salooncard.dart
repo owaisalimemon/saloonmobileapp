@@ -164,7 +164,7 @@ class SaloonCard extends StatelessWidget {
                           children: [
                             Text(controller.saloons[index].name,
                                 style: TextStyle(
-                                    fontSize: width * 0.05,
+                                    fontSize: width * 0.045,
                                     color: Colors.black)),
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.end,
@@ -201,7 +201,7 @@ class SaloonCard extends StatelessWidget {
                                     Text(
                                       controller.saloons[index].address,
                                       style: TextStyle(
-                                          fontSize: width * 0.03,
+                                          fontSize: width * 0.025,
                                           color: Color(0xff707070)),
                                     )
                                   ],
@@ -217,7 +217,7 @@ class SaloonCard extends StatelessWidget {
                                     Text(
                                       controller.saloons[index].distance,
                                       style: TextStyle(
-                                          fontSize: width * 0.03,
+                                          fontSize: width * 0.025,
                                           color: Color(0xff707070)),
                                     )
                                   ],
@@ -238,7 +238,7 @@ class SaloonCard extends StatelessWidget {
                                     Text(
                                       controller.saloons[index].weekdays,
                                       style: TextStyle(
-                                          fontSize: width * 0.03,
+                                          fontSize: width * 0.025,
                                           color: Color(0xff707070)),
                                     )
                                   ],
@@ -254,7 +254,7 @@ class SaloonCard extends StatelessWidget {
                                     Text(
                                       controller.saloons[index].timings,
                                       style: TextStyle(
-                                          fontSize: width * 0.03,
+                                          fontSize: width * 0.025,
                                           color: Color(0xff707070)),
                                     )
                                   ],

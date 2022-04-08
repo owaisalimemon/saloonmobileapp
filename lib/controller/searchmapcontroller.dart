@@ -16,7 +16,7 @@ final getsearchmap = ChangeNotifierProvider<SearchMapController>((
 class SearchMapController extends ChangeNotifier {
   int checktoggle = 0;
 
-  int rating = 0;
+  double rating = 0;
   int groupValue = -1;
 
   bool hairstylefilterselected = false;
