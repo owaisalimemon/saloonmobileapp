@@ -14,9 +14,17 @@ class ChatScreen extends StatelessWidget {
   ).createShader(Rect.fromLTWH(0.0, 0.0, 200.0, 70.0));
 
   List<ChatMessage> messages = [
-    ChatMessage(messageContent: "Hi, How are you?", messageType: "receiver"),
-    ChatMessage(messageContent: "Awesome and you?", messageType: "sender"),
-    ChatMessage(messageContent: "Hi, How are you?", messageType: "receiver"),
+    ChatMessage(
+        messageContent:
+            "Hey good morning! Yes I was home quite late but I had a good a good rest",
+        messageType: "receiver"),
+    ChatMessage(
+        messageContent: "Hey what’s up? did you manage to sleep?",
+        messageType: "sender"),
+    ChatMessage(
+        messageContent:
+            "Hey good morning! Yes I was home quite late but I had a good a good rest",
+        messageType: "receiver"),
     ChatMessage(messageContent: "Awesome and you?", messageType: "sender"),
     ChatMessage(messageContent: "Hi, How are you?", messageType: "receiver"),
     ChatMessage(messageContent: "Awesome and you?", messageType: "sender"),
@@ -64,19 +72,10 @@ class ChatScreen extends StatelessWidget {
           ],
         ),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+      body: Stack(
+        alignment: Alignment.center,
         children: [
           Container(
-            width: width,
-            height: height * 0.02,
-            child: Image.asset(
-              "assets/images/chattop.png",
-              fit: BoxFit.fill,
-            ),
-          ),
-          Container(
-            height: height * 0.815,
             width: width,
             child: ListView.builder(
               itemCount: messages.length,
@@ -97,55 +96,74 @@ class ChatScreen extends StatelessWidget {
               },
             ),
           ),
-          Container(
-              // height: height * 0.06,
-              width: width,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  // IconButton(
-                  //   icon: Image.asset('asset/images/pin.png'),
-                  //   onPressed: () {},
-                  // ),
+          Positioned(
+            top: 0,
+            child: Align(
+              alignment: Alignment.topCenter,
+              child: Container(
+                width: width,
+                height: height * 0.02,
+                child: Image.asset(
+                  "assets/images/chattop.png",
+                  fit: BoxFit.fill,
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            child: Container(
+                color: Colors.white,
+                // height: height * 0.06,
+                width: width,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    // IconButton(
+                    //   icon: Image.asset('asset/images/pin.png'),
+                    //   onPressed: () {},
+                    // ),
 
-                  Container(
-                    width: width * 0.6,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                        border: Border.all(color: Colors.grey, width: 1)),
-                    child: TextFormField(
-                      controller: TextEditingController(),
-                      textAlignVertical: TextAlignVertical.center,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        contentPadding: EdgeInsets.symmetric(
-                            vertical: height * 0.018, horizontal: width * 0.05),
-                        hintText: 'Enter a message',
-                        hintStyle: TextStyle(color: Colors.grey),
+                    Container(
+                      width: width * 0.6,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25),
+                          border: Border.all(color: Colors.grey, width: 1)),
+                      child: TextFormField(
+                        controller: TextEditingController(),
+                        textAlignVertical: TextAlignVertical.center,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          contentPadding: EdgeInsets.symmetric(
+                              vertical: height * 0.018,
+                              horizontal: width * 0.05),
+                          hintText: 'Enter a message',
+                          hintStyle: TextStyle(color: Colors.grey),
+                        ),
                       ),
                     ),
-                  ),
-                  IconButton(
-                    icon: Image.asset(
-                      'assets/images/Camera.png',
-                      scale: width * 0.009999,
+                    IconButton(
+                      icon: Image.asset(
+                        'assets/images/Camera.png',
+                        scale: width * 0.009999,
+                      ),
+                      onPressed: () {},
                     ),
-                    onPressed: () {},
-                  ),
-                  IconButton(
-                    icon: Image.asset(
-                      'assets/images/Mic.png',
-                      scale: width * 0.009999,
+                    IconButton(
+                      icon: Image.asset(
+                        'assets/images/Mic.png',
+                        scale: width * 0.009999,
+                      ),
+                      onPressed: () {},
                     ),
-                    onPressed: () {},
-                  ),
-                  IconButton(
-                    icon: Icon(Icons.send),
-                    onPressed: () {},
-                  ),
-                ],
-              )),
+                    IconButton(
+                      icon: Icon(Icons.send),
+                      onPressed: () {},
+                    ),
+                  ],
+                )),
+          ),
         ],
       ),
     );

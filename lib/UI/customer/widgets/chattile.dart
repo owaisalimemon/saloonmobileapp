@@ -46,7 +46,7 @@ class ChatTile extends StatelessWidget {
                   : CrossAxisAlignment.end,
               children: [
                 Container(
-                  // width: width * 0.5,
+                  width: width * 0.7,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(15),
