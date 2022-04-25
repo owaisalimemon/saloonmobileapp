@@ -212,7 +212,7 @@ class SaloonProfile extends ConsumerWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: width * 0.1),
+                      padding: EdgeInsets.symmetric(horizontal: width * 0.05),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -363,13 +363,13 @@ class SaloonProfile extends ConsumerWidget {
                                       SizedBox(height: height * 0.01),
                                       Text(emplyeedata[index].name,
                                           style: TextStyle(
-                                              fontSize: width * 0.045,
+                                              fontSize: width * 0.04,
                                               fontWeight: FontWeight.normal,
                                               color: Colors.black)),
                                       SizedBox(height: height * 0.005),
                                       Text(emplyeedata[index].designation,
                                           style: TextStyle(
-                                              fontSize: width * 0.04,
+                                              fontSize: width * 0.035,
                                               fontWeight: FontWeight.normal,
                                               color: Color(0xff67A6EB)))
                                     ],

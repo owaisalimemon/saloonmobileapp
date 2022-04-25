@@ -39,7 +39,7 @@ class SplashScreen extends StatelessWidget {
                 "ONLINE BARBER BOOKING",
                 style: TextStyle(
                     color: ColorsX.white,
-                    fontSize: width * 0.07,
+                    fontSize: width * 0.06,
                     fontWeight: FontWeight.w900),
               )),
               SizedBox(height: height * 0.02),

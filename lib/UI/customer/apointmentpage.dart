@@ -83,7 +83,7 @@ class AppointmentPage extends ConsumerWidget {
                               'All',
                               style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: width * 0.025,
+                                  fontSize: width * 0.02,
                                   fontWeight: FontWeight.bold),
                             ),
                           ),
@@ -93,7 +93,7 @@ class AppointmentPage extends ConsumerWidget {
                               'Upcoming',
                               style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: width * 0.025,
+                                  fontSize: width * 0.02,
                                   fontWeight: FontWeight.bold),
                             ),
                           ),
@@ -103,7 +103,7 @@ class AppointmentPage extends ConsumerWidget {
                               'Cancelled',
                               style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: width * 0.025,
+                                  fontSize: width * 0.02,
                                   fontWeight: FontWeight.bold),
                             ),
                           ),
@@ -113,7 +113,7 @@ class AppointmentPage extends ConsumerWidget {
                               'History',
                               style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: width * 0.025,
+                                  fontSize: width * 0.02,
                                   fontWeight: FontWeight.bold),
                             ),
                           ),

@@ -53,7 +53,7 @@ class AppointmentCard extends StatelessWidget {
                                 Text(
                                   appintmentdetail[index].saloonname,
                                   style: TextStyle(
-                                      fontSize: width * 0.04,
+                                      fontSize: width * 0.03,
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold),
                                 ),

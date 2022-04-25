@@ -117,7 +117,7 @@ class PackagesCard extends StatelessWidget {
                       child: Text(
                         controller.packagesandoffer[index].deal,
                         style: TextStyle(
-                            fontSize: width * 0.05,
+                            fontSize: width * 0.04,
                             color: Colors.white,
                             fontWeight: FontWeight.normal),
                       )),
@@ -127,7 +127,7 @@ class PackagesCard extends StatelessWidget {
                       child: Text(
                         controller.packagesandoffer[index].name,
                         style: TextStyle(
-                            fontSize: width * 0.055,
+                            fontSize: width * 0.045,
                             color: Colors.white,
                             fontWeight: FontWeight.bold),
                       )),

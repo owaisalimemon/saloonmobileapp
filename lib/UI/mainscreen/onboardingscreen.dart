@@ -15,7 +15,7 @@ class OnBoardingScreen extends ConsumerWidget {
   final PageController _pageController = PageController(initialPage: 0);
   String para =
       "Find & Book Barber, Beauty Saloon & Spa Services anywhere, anytime";
-  String head = "FIND & BOOK SERVICES0";
+  String head = "FIND & BOOK SERVICES";
 
   List<String> heading = [
     'FIND & BOOK SERVICES',
